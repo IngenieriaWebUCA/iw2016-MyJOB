@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_es_uca_iw_myjob_domain_OfertaTrabajo" object="${ofertatrabajo}" path="/ofertatrabajoes" z="i8/ZfCrfwwCjwbPOokbt+MI27x0=">
+        <field:display field="tipologia_contrato" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_tipologia_contrato" object="${ofertatrabajo}" z="akqldvXpEHEGuUaGefU6bd4QWQc="/>
+        <field:display field="sueldo_bruto" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_sueldo_bruto" object="${ofertatrabajo}" z="as7cZTgdRDRe8k0b0ZaP/Cmzl3A="/>
+        <field:display date="true" dateTimePattern="${ofertaTrabajo_fecha_aprox_inic_date_format}" field="fecha_aprox_inic" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_fecha_aprox_inic" object="${ofertatrabajo}" z="liPuM2gbRUtAPI9PPhfZ4wO3kG0="/>
+        <field:display field="num_vacantes" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_num_vacantes" object="${ofertatrabajo}" z="tm5nz76tQjicd/w35p6yqMPth/w="/>
+        <field:display field="perfil" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_perfil" object="${ofertatrabajo}" z="dDdi9OsfAeB/N6Vn0aSz0bsG1jo="/>
+        <field:display field="formacion" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_formacion" object="${ofertatrabajo}" z="LozLhnKEYqxEsiHcJI6ANj0uJ7E="/>
+        <field:display field="experiencia_previa" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_experiencia_previa" object="${ofertatrabajo}" z="+Oky6nbWhu/n9jEdYQv9sZebgIA="/>
+        <field:display field="estado_empleo" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_estado_empleo" object="${ofertatrabajo}" z="dKib2fF6zH/7Q74Rwv3p36qlT6s="/>
+        <field:display field="id_oferta_demandante" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_demandante" object="${ofertatrabajo}" z="DlT8u5e6t2lkDXGXrJdDt66NlV8="/>
+    </page:show>
+</div>

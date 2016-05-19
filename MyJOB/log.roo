@@ -1,3 +1,93 @@
 // Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-19 19:07:07
 project --topLevelPackage es.uca.iw.myjob --projectName MyJOB --java 7 --packaging JAR
 // Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-19 19:07:09
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-19 19:12:05
+jpa setup --provider HIBERNATE --database MYSQL
+entity jpa --class es.uca.iw.myjob.domain.Usuario --testAutomatically
+enum type --class es.uca.iw.myjob.reference.TipoUsuario
+enum constant --name Empresa
+enum constant --name Demandante
+field string --fieldName username --notNull --sizeMin 3 --sizeMax 30 --class es.uca.iw.myjob.domain.Usuario
+field string --fieldName password --notNull --sizeMin 9 --sizeMax 30
+field date --fieldName fecha_registro --type java.util.Date --notNull --past
+field string --fieldName email --sizeMin 6 --sizeMax 30
+field enum --fieldName tipo_usuario  --type es.uca.iw.myjob.reference.TipoUsuario
+web mvc setup
+web mvc all --package ~.web
+web mvc language --code es
+entity jpa --class es.uca.iw.myjob.domain.Empresa --testAutomatically
+field string --fieldName nombre --notNull --sizeMin 3 --sizeMax 30 --class es.uca.iw.myjob.domain.Empresa
+field string --fieldName cif --notNull --sizeMin 9 --sizeMax 9
+field string --fieldName email --sizeMin 6 --sizeMax 30
+field string --fieldName actividad_profesional  --sizeMax 255
+field number --fieldName n_empleados --type java.lang.Float --min 0
+field string --fieldName telefono --notNull
+field set --class  es.uca.iw.myjob.domain.Usuario --fieldName id_usuario --type  es.uca.iw.myjob.domain.Empresa --mappedBy usuario --notNull false --cardinality ONE_TO_MANY
+focus --class ~.domain.Empresa
+field reference --fieldName usuario --type ~.domain.Empresa
+web mvc all --package ~.web
+entity jpa --class es.uca.iw.myjob.domain.Direccion --testAutomatically
+field string --fieldName nombre --notNull --sizeMin 3 --sizeMax 30 --class es.uca.iw.myjob.domain.Direccion
+field string --fieldName num --notNull
+field string --fieldName cp --notNull
+field string --fieldName pais --notNull
+field set --class  es.uca.iw.myjob.domain.Direccion --fieldName id_direccion --type  es.uca.iw.myjob.domain.Empresa --mappedBy direccion --notNull false --cardinality ONE_TO_MANY
+focus --class ~.domain.Empresa
+field reference --fieldName direccion --type ~.domain.Direccion
+web mvc all --package ~.web
+entity jpa --class es.uca.iw.myjob.domain.OfertaTrabajo --testAutomatically
+enum type --class es.uca.iw.myjob.reference.EstadoOferta
+enum constant --name recibida
+enum constant --name retirada
+enum constant --name estudio
+enum constant --name descartada
+enum constant --name aceptada
+enum type --class es.uca.iw.myjob.reference.EstadoEmpleo
+enum constant --name espera
+enum constant --name activa
+enum constant --name detenida
+enum constant --name cancelada
+enum constant --name tramite
+enum constant --name resuelta
+field string --fieldName tipologia_contrato --notNull --sizeMin 3 --sizeMax 30 --class es.uca.iw.myjob.domain.OfertaTrabajo
+field number  --fieldName sueldo_bruto --type java.lang.Float --notNull --min 0
+field date --fieldName fecha_aprox_inic --type java.util.Date --notNull
+field string --fieldName num_vacantes --notNull
+field string --fieldName perfil --notNull --sizeMax 255
+field string --fieldName formacion --notNull --sizeMin 3 --sizeMax 30
+field string --fieldName experiencia_previa --notNull
+field enum --fieldName estado_empleo --type es.uca.iw.myjob.reference.EstadoEmpleo
+field set --fieldName id_oferta_empresa  --type es.uca.iw.myjob.domain.Empresa --class es.uca.iw.myjob.domain.OfertaTrabajo --cardinality ONE_TO_MANY --mappedBy oferta
+focus --class ~.domain.Empresa
+field reference --fieldName oferta --type ~.domain.OfertaTrabajo
+web mvc all --package ~.web
+entity jpa --class es.uca.iw.myjob.domain.Demandante --testAutomatically
+field string --fieldName dni --notNull --sizeMin 3 --sizeMax 30 --class es.uca.iw.myjob.domain.Demandante
+field string --fieldName nombre --notNull --sizeMin 3 --sizeMax 30
+field date --fieldName fecha_nacimiento --type java.util.Date --notNull --past
+field string --fieldName sexo --notNull
+field string --fieldName dir_actual --notNull
+field string --fieldName email --notNull  --sizeMin 6 --sizeMax 30
+field string --fieldName telefono --notNull
+field string --fieldName usuario --sizeMin 6 --sizeMax 30
+field string --fieldName password --sizeMin 6 --sizeMax 30
+field enum --fieldName estado --type es.uca.iw.myjob.reference.EstadoOferta
+field set --class  es.uca.iw.myjob.domain.OfertaTrabajo --fieldName id_oferta_demandante --type  es.uca.iw.myjob.domain.Demandante --mappedBy ofertademandante --notNull false --cardinality MANY_TO_MANY
+focus --class ~.domain.Demandante
+field reference --fieldName ofertademandante --type ~.domain.OfertaTrabajo 
+entity jpa --class es.uca.iw.myjob.domain.Perfil --testAutomatically
+field string --fieldName trayectoria --sizeMax 255 --class es.uca.iw.myjob.domain.Perfil
+field string --fieldName foto
+field string --fieldName lista_puesto_trabajo  --sizeMin 3 --sizeMax 30
+field string --fieldName titulos_academicos --notNull --sizeMin 3 --sizeMax 30
+field string --fieldName cursos_especializacion --sizeMin 3 --sizeMax 30
+field string --fieldName idiomas --sizeMin 3 --sizeMax 30
+field string --fieldName nombres_empresas --sizeMin 3 --sizeMax 30 
+field date --fieldName fecha_inicio --type java.util.Date --notNull --past
+field date --fieldName fecha_fin --type java.util.Date
+field string --fieldName puesto_trabajo_desempenado --sizeMin 3 --sizeMax 30 
+field set --class  es.uca.iw.myjob.domain.Perfil --fieldName id_perfil --type  es.uca.iw.myjob.domain.Demandante --mappedBy perfil --notNull false --cardinality ONE_TO_MANY
+focus --class ~.domain.Demandante
+field reference --fieldName perfil --type ~.domain.Perfil
+// [failed] field reference --fieldName perfil --type ~.domain.Perfil
+web mvc all --package ~.web

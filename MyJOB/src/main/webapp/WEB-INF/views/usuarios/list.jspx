@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_es_uca_iw_myjob_domain_Usuario" items="${usuarios}" z="ndZpLGYn+6DsbGrE4YsZg436qxg=">
+        <table:table data="${usuarios}" id="l_es_uca_iw_myjob_domain_Usuario" path="/usuarios" z="7yM7whjXr+B/it7qdYrA+NWTelI=">
+            <table:column id="c_es_uca_iw_myjob_domain_Usuario_username" property="username" z="qf1mOC6oatwvCpwP8umjaJwQhBM="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Usuario_password" property="password" z="2JnpNb386tKpXx4knpepQjwrGHY="/>
+            <table:column date="true" dateTimePattern="${usuario_fecha_registro_date_format}" id="c_es_uca_iw_myjob_domain_Usuario_fecha_registro" property="fecha_registro" z="sPPtcUaZtESbE3/LA8Kkbm1Ds8M="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Usuario_email" property="email" z="uBwzjLKkqwuNtVY3HJuplzH14kI="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Usuario_tipo_usuario" property="tipo_usuario" z="Vveq0CECoLXMRuzKmLTr3Hsirek="/>
+        </table:table>
+    </page:list>
+</div>

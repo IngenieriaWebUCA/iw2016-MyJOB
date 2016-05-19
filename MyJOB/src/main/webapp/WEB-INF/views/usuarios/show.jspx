@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_es_uca_iw_myjob_domain_Usuario" object="${usuario}" path="/usuarios" z="ASkjkg19a0POvblSTUhcrE0+09Q=">
+        <field:display field="username" id="s_es_uca_iw_myjob_domain_Usuario_username" object="${usuario}" z="/hFe66D6gYetGJoWvNbcuKGsaVc="/>
+        <field:display field="password" id="s_es_uca_iw_myjob_domain_Usuario_password" object="${usuario}" z="AGGlR4a+9lHNQ2O6m8VmLoG4C1g="/>
+        <field:display date="true" dateTimePattern="${usuario_fecha_registro_date_format}" field="fecha_registro" id="s_es_uca_iw_myjob_domain_Usuario_fecha_registro" object="${usuario}" z="0GdpyR+Kj15BgebhKYqqdTvhwp4="/>
+        <field:display field="email" id="s_es_uca_iw_myjob_domain_Usuario_email" object="${usuario}" z="Km+KtFZncJ+Rh6qkJgTt/5Ly+f4="/>
+        <field:display field="tipo_usuario" id="s_es_uca_iw_myjob_domain_Usuario_tipo_usuario" object="${usuario}" z="q8NTFbdm00R1xFMgA6O4IoSHKVQ="/>
+    </page:show>
+</div>

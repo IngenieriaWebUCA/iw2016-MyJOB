@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_es_uca_iw_myjob_domain_Perfil" object="${perfil}" path="/perfils" z="t0vH37yq16UeNaflvVDvdryygiE=">
+        <field:display field="trayectoria" id="s_es_uca_iw_myjob_domain_Perfil_trayectoria" object="${perfil}" z="P9vSSBSbzYbzG7arIackAFJAWWI="/>
+        <field:display field="foto" id="s_es_uca_iw_myjob_domain_Perfil_foto" object="${perfil}" z="VkrKY6tURPOqnzHx97goif4opoY="/>
+        <field:display field="lista_puesto_trabajo" id="s_es_uca_iw_myjob_domain_Perfil_lista_puesto_trabajo" object="${perfil}" z="QwAiHTX6wFY+s2BY0PY7lMm3nZY="/>
+        <field:display field="titulos_academicos" id="s_es_uca_iw_myjob_domain_Perfil_titulos_academicos" object="${perfil}" z="iRPTd/V9SkApLmRLJkGsVfZbKs8="/>
+        <field:display field="cursos_especializacion" id="s_es_uca_iw_myjob_domain_Perfil_cursos_especializacion" object="${perfil}" z="9l1A0ymUdhjHPql0vomn1fsRHx4="/>
+        <field:display field="idiomas" id="s_es_uca_iw_myjob_domain_Perfil_idiomas" object="${perfil}" z="eoR81ThxWNS2sy59bvY6wJs0TbE="/>
+        <field:display field="nombres_empresas" id="s_es_uca_iw_myjob_domain_Perfil_nombres_empresas" object="${perfil}" z="vefHX7XjHbS/LOL17dZgWIlIA/Y="/>
+        <field:display date="true" dateTimePattern="${perfil_fecha_inicio_date_format}" field="fecha_inicio" id="s_es_uca_iw_myjob_domain_Perfil_fecha_inicio" object="${perfil}" z="0kro3hOscd7ml3+fPevmfULIrn0="/>
+        <field:display date="true" dateTimePattern="${perfil_fecha_fin_date_format}" field="fecha_fin" id="s_es_uca_iw_myjob_domain_Perfil_fecha_fin" object="${perfil}" z="dwhBSWkGPKTGNW1oOBcJ4kH6YA0="/>
+        <field:display field="puesto_trabajo_desempenado" id="s_es_uca_iw_myjob_domain_Perfil_puesto_trabajo_desempenado" object="${perfil}" z="+k/hrDt3O7MVv3XIa5sjoI02Jr8="/>
+    </page:show>
+</div>

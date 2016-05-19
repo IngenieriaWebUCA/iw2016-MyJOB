@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_es_uca_iw_myjob_domain_Demandante" object="${demandante}" path="/demandantes" z="BJadtr4sreDlZYVTMxIJ3g2bSVM=">
+        <field:display field="dni" id="s_es_uca_iw_myjob_domain_Demandante_dni" object="${demandante}" z="4sVRA9IT8uT4+o9Es32fMovvts0="/>
+        <field:display field="nombre" id="s_es_uca_iw_myjob_domain_Demandante_nombre" object="${demandante}" z="B6eMV3/s/0+LJ6WP2MGAoRrzrxA="/>
+        <field:display date="true" dateTimePattern="${demandante_fecha_nacimiento_date_format}" field="fecha_nacimiento" id="s_es_uca_iw_myjob_domain_Demandante_fecha_nacimiento" object="${demandante}" z="nRO0HO85VPL9uTEphQRVfKRkB0k="/>
+        <field:display field="sexo" id="s_es_uca_iw_myjob_domain_Demandante_sexo" object="${demandante}" z="Bh1R7LEaWqVqeVz5PYLkZxWQLHQ="/>
+        <field:display field="dir_actual" id="s_es_uca_iw_myjob_domain_Demandante_dir_actual" object="${demandante}" z="vwdnF+qjxgBtzY6sYGa5AAZfnXc="/>
+        <field:display field="email" id="s_es_uca_iw_myjob_domain_Demandante_email" object="${demandante}" z="BsGMXV18i/s9dV16QUrjVeHZK5g="/>
+        <field:display field="telefono" id="s_es_uca_iw_myjob_domain_Demandante_telefono" object="${demandante}" z="+dieWQ8Yx4iAUynvhmacXVap/CY="/>
+        <field:display field="usuario" id="s_es_uca_iw_myjob_domain_Demandante_usuario" object="${demandante}" z="JK/M1kv/AwY/uy99RfyhkPiC21s="/>
+        <field:display field="password" id="s_es_uca_iw_myjob_domain_Demandante_password" object="${demandante}" z="DRcZ84R9bwpxwIf4YnkbZSZUFsI="/>
+        <field:display field="estado" id="s_es_uca_iw_myjob_domain_Demandante_estado" object="${demandante}" z="lgzXi24qXzANWm9cgFImddEYHm4="/>
+        <field:display field="ofertademandante" id="s_es_uca_iw_myjob_domain_Demandante_ofertademandante" object="${demandante}" z="tnEDtMdOAPphV49j93jqT/6mx/8="/>
+        <field:display field="perfil" id="s_es_uca_iw_myjob_domain_Demandante_perfil" object="${demandante}" z="t3rw5tWXwyUCREDyIBAVAkNKvRw="/>
+    </page:show>
+</div>

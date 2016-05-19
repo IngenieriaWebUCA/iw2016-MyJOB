@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_es_uca_iw_myjob_domain_Perfil" items="${perfils}" z="O4AFTPeTfnHQFidiXvsPDVwDaRo=">
+        <table:table data="${perfils}" id="l_es_uca_iw_myjob_domain_Perfil" path="/perfils" z="mI0lZuMVjBSxfMvaIORBFrrxXr8=">
+            <table:column id="c_es_uca_iw_myjob_domain_Perfil_trayectoria" property="trayectoria" z="PN0Hi4Oh3DZBqb6MTgZjFwOn/vk="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Perfil_foto" property="foto" z="tP5ftDE5Q6rLiDNoPjakmx8Wm2E="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Perfil_lista_puesto_trabajo" property="lista_puesto_trabajo" z="3VWH4/1eKMuWRKQgkPIkIQ68h14="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Perfil_titulos_academicos" property="titulos_academicos" z="jZjbiL3wg09FwQbF+HY+Gov4XPQ="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Perfil_cursos_especializacion" property="cursos_especializacion" z="/3KVObGzoiDXb6giMJzFuKPjWRQ="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Perfil_idiomas" property="idiomas" z="tcikWJVRfHRoJDrzJR2l0tqkRFg="/>
+        </table:table>
+    </page:list>
+</div>

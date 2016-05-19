@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_es_uca_iw_myjob_domain_Demandante" items="${demandantes}" z="B12ny79BwxUTwa2SXC7XUrUWIec=">
+        <table:table data="${demandantes}" id="l_es_uca_iw_myjob_domain_Demandante" path="/demandantes" z="VbVgKLrI68LytLndv03VKD51Fog=">
+            <table:column id="c_es_uca_iw_myjob_domain_Demandante_dni" property="dni" z="K35WGTzvGPqIXQ+ZEA/snvApeo0="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Demandante_nombre" property="nombre" z="g6VplKFfDfTc/8FFGodrXCalA+Y="/>
+            <table:column date="true" dateTimePattern="${demandante_fecha_nacimiento_date_format}" id="c_es_uca_iw_myjob_domain_Demandante_fecha_nacimiento" property="fecha_nacimiento" z="8mHPFawrovg376tFVvj+2e5/3iM="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Demandante_sexo" property="sexo" z="yjWzKQO8ZkjJMd68z3qluEHJ3Gk="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Demandante_dir_actual" property="dir_actual" z="egge9HA0+9pz1eXkAiBhIHl/HPE="/>
+            <table:column id="c_es_uca_iw_myjob_domain_Demandante_email" property="email" z="UmYAEsFAU9d7+5106/pLQUiUhEw="/>
+        </table:table>
+    </page:list>
+</div>

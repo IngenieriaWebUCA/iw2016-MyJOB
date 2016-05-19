@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_es_uca_iw_myjob_domain_OfertaTrabajo" modelAttribute="ofertaTrabajo" path="/ofertatrabajoes" versionField="Version" z="3dbMxOS46PJvH9FrqmVDqEpf9k0=">
+        <field:input field="tipologia_contrato" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_tipologia_contrato" max="30" min="3" required="true" z="f5ndZt6AuVDgY3/p6bZCs9Gn97M="/>
+        <field:input field="sueldo_bruto" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_sueldo_bruto" min="0" required="true" validationMessageCode="field_invalid_number" z="cxhSeubAzrMPFdurxdInUL397N4="/>
+        <field:datetime dateTimePattern="${ofertaTrabajo_fecha_aprox_inic_date_format}" field="fecha_aprox_inic" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_fecha_aprox_inic" required="true" z="2htc+wQd1qd/7jRgmid5R6j8i7o="/>
+        <field:input field="num_vacantes" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_num_vacantes" required="true" z="/vj+7xsqwIMH6KZd/rg1ET5mkH4="/>
+        <field:textarea field="perfil" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_perfil" required="true" z="UN0itCI+rgGNRTnpW6/xRTRUyus="/>
+        <field:input field="formacion" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_formacion" max="30" min="3" required="true" z="ZH9QvujA7mePivG2cWERIuDsTSM="/>
+        <field:input field="experiencia_previa" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_experiencia_previa" required="true" z="6UtDaN+6AP3++fua9AjdyCKwVOs="/>
+        <field:select field="estado_empleo" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_estado_empleo" items="${estadoempleos}" path="estadoempleos" z="JOX9PReii3uVJQ1IMtXlOd75blQ="/>
+        <field:simple field="id_oferta_empresa" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_empresa" messageCode="entity_reference_not_managed" messageCodeAttribute="Empresa" z="32M8Ymma7wvkViMzBarm6NQZ198="/>
+        <field:select field="id_oferta_demandante" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_demandante" itemValue="id" items="${demandantes}" multiple="true" path="/demandantes" z="dr+VzGXy4n1dcDLJvHTEX26ONdE="/>
+    </form:update>
+</div>
