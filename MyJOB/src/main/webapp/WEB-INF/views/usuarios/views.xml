@@ -13,4 +13,7 @@
 <definition extends="default" name="usuarios/update">
         <put-attribute name="body" value="/WEB-INF/views/usuarios/update.jspx"/>
     </definition>
+<definition extends="default" name="usuarios/editable_tree">
+        <put-attribute name="body" value="/WEB-INF/views/usuarios/editable_tree.jspx"/>
+    </definition>
 </tiles-definitions>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:fancytree="urn:jsptagdir:/WEB-INF/tags/fancytree" xmlns:jsp="http://java.sun.com/JSP/Page">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+<fancytree:tree editable="true" id="ps_es_uca_iw_myjob_web_Usuarios_editable_tree" path="/usuarios/editable_tree" z="user-managed"/>
+</div>
