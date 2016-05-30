@@ -19,10 +19,20 @@ import javax.persistence.ManyToMany;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord
+@RooJpaActiveRecord(finders = { "findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull" })
 public class OfertaTrabajo {
 
+	/**
+     */
+    @Size(min = 3, max = 30)
+    private String nombre;
+
     /**
+     */
+    @Size(max = 255)
+    private String descripcion;
+	
+	/**
      */
     @NotNull
     @Size(min = 3, max = 30)
@@ -77,4 +87,6 @@ public class OfertaTrabajo {
      */
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "ofertademandante")
     private Set<Demandante> id_oferta_demandante = new HashSet<Demandante>();
+
+    
 }

@@ -93,7 +93,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<OfertaTrabajo, String> ApplicationConversionServiceFactoryBean.getOfertaTrabajoToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<es.uca.iw.myjob.domain.OfertaTrabajo, java.lang.String>() {
             public String convert(OfertaTrabajo ofertaTrabajo) {
-                return new StringBuilder().append(ofertaTrabajo.getTipologia_contrato()).append(' ').append(ofertaTrabajo.getSueldo_bruto()).append(' ').append(ofertaTrabajo.getFecha_aprox_inic()).append(' ').append(ofertaTrabajo.getNum_vacantes()).toString();
+                return new StringBuilder().append(ofertaTrabajo.getNombre()).append(' ').append(ofertaTrabajo.getDescripcion()).append(' ').append(ofertaTrabajo.getTipologia_contrato()).append(' ').append(ofertaTrabajo.getSueldo_bruto()).toString();
             }
         };
     }

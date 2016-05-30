@@ -14,7 +14,8 @@
         <field:input field="password" id="c_es_uca_iw_myjob_domain_Demandante_password" max="30" min="6" required="true" z="WBLH/eNDOY/zIe+fdfzoU1HIXV4="/>
         <field:select field="estado" id="c_es_uca_iw_myjob_domain_Demandante_estado" items="${estadoofertas}" path="estadoofertas" z="q1hE74xKmHgfHElPMZohcAW5vIc="/>
         <field:select field="ofertademandante" id="c_es_uca_iw_myjob_domain_Demandante_ofertademandante" itemValue="id" items="${ofertatrabajoes}" path="/ofertatrabajoes" z="XvhmbC6AH2sEcW+EJNeTK1a9Fzk="/>
-        <field:select field="perfil" id="c_es_uca_iw_myjob_domain_Demandante_perfil" itemValue="id" items="${perfils}" path="/perfils" z="cFP+kBTSaMFCeKcVMhmIBtD4pYs="/>
+        <field:select field="perfil" id="c_es_uca_iw_myjob_domain_Demandante_perfil" itemValue="id" items="${perfils}" path="/perfils" render="false" z="user-managed"/>
+        <field:select field="usuariod" id="c_es_uca_iw_myjob_domain_Demandante_usuariod" itemValue="id" items="${usuarios}" path="/usuarios" render="false" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_es_uca_iw_myjob_domain_Demandante" render="${not empty dependencies}" z="B278jwnQm39rF33gpGTiDT/GZ6Q="/>
 </div>

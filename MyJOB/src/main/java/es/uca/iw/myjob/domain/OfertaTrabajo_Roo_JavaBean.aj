@@ -12,6 +12,22 @@ import java.util.Set;
 
 privileged aspect OfertaTrabajo_Roo_JavaBean {
     
+    public String OfertaTrabajo.getNombre() {
+        return this.nombre;
+    }
+    
+    public void OfertaTrabajo.setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public String OfertaTrabajo.getDescripcion() {
+        return this.descripcion;
+    }
+    
+    public void OfertaTrabajo.setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
     public String OfertaTrabajo.getTipologia_contrato() {
         return this.tipologia_contrato;
     }

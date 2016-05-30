@@ -6,6 +6,7 @@ package es.uca.iw.myjob.web;
 import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.OfertaTrabajo;
 import es.uca.iw.myjob.domain.Perfil;
+import es.uca.iw.myjob.domain.Usuario;
 import es.uca.iw.myjob.reference.EstadoOferta;
 import es.uca.iw.myjob.web.DemandanteController;
 import java.io.UnsupportedEncodingException;
@@ -101,6 +102,7 @@ privileged aspect DemandanteController_Roo_Controller {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findAllOfertaTrabajoes());
         uiModel.addAttribute("perfils", Perfil.findAllPerfils());
+        uiModel.addAttribute("usuarios", Usuario.findAllUsuarios());
         uiModel.addAttribute("estadoofertas", Arrays.asList(EstadoOferta.values()));
     }
     

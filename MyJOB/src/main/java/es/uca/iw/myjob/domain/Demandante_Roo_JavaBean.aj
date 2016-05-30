@@ -6,6 +6,7 @@ package es.uca.iw.myjob.domain;
 import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.OfertaTrabajo;
 import es.uca.iw.myjob.domain.Perfil;
+import es.uca.iw.myjob.domain.Usuario;
 import es.uca.iw.myjob.reference.EstadoOferta;
 import java.util.Date;
 
@@ -105,6 +106,14 @@ privileged aspect Demandante_Roo_JavaBean {
     
     public void Demandante.setPerfil(Perfil perfil) {
         this.perfil = perfil;
+    }
+    
+    public Usuario Demandante.getUsuariod() {
+        return this.usuariod;
+    }
+    
+    public void Demandante.setUsuariod(Usuario usuariod) {
+        this.usuariod = usuariod;
     }
     
 }

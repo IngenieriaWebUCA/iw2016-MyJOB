@@ -5,6 +5,7 @@ package es.uca.iw.myjob.domain;
 
 import es.uca.iw.myjob.domain.Usuario;
 import es.uca.iw.myjob.domain.UsuarioDataOnDemand;
+import es.uca.iw.myjob.reference.Rol;
 import es.uca.iw.myjob.reference.TipoUsuario;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -27,9 +28,11 @@ privileged aspect UsuarioDataOnDemand_Roo_DataOnDemand {
     public Usuario UsuarioDataOnDemand.getNewTransientUsuario(int index) {
         Usuario obj = new Usuario();
         setEmail(obj, index);
+        setEnabled(obj, index);
         setFecha_registro(obj, index);
         setPassword(obj, index);
-        setTipo_usuario(obj, index);
+        setRol(obj, index);
+        setTipoUsuario(obj, index);
         setUsername(obj, index);
         return obj;
     }
@@ -40,6 +43,14 @@ privileged aspect UsuarioDataOnDemand_Roo_DataOnDemand {
             email = email.substring(0, 30);
         }
         obj.setEmail(email);
+    }
+    
+    public void UsuarioDataOnDemand.setEnabled(Usuario obj, int index) {
+        String enabled = "e_" + index;
+        if (enabled.length() > 3) {
+            enabled = enabled.substring(0, 3);
+        }
+        obj.setEnabled(enabled);
     }
     
     public void UsuarioDataOnDemand.setFecha_registro(Usuario obj, int index) {
@@ -55,9 +66,14 @@ privileged aspect UsuarioDataOnDemand_Roo_DataOnDemand {
         obj.setPassword(password);
     }
     
-    public void UsuarioDataOnDemand.setTipo_usuario(Usuario obj, int index) {
-        TipoUsuario tipo_usuario = TipoUsuario.class.getEnumConstants()[0];
-        obj.setTipo_usuario(tipo_usuario);
+    public void UsuarioDataOnDemand.setRol(Usuario obj, int index) {
+        Rol rol = Rol.class.getEnumConstants()[0];
+        obj.setRol(rol);
+    }
+    
+    public void UsuarioDataOnDemand.setTipoUsuario(Usuario obj, int index) {
+        TipoUsuario tipoUsuario = TipoUsuario.class.getEnumConstants()[0];
+        obj.setTipoUsuario(tipoUsuario);
     }
     
     public void UsuarioDataOnDemand.setUsername(Usuario obj, int index) {

@@ -12,5 +12,7 @@
         <field:display field="experiencia_previa" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_experiencia_previa" object="${ofertatrabajo}" z="+Oky6nbWhu/n9jEdYQv9sZebgIA="/>
         <field:display field="estado_empleo" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_estado_empleo" object="${ofertatrabajo}" z="dKib2fF6zH/7Q74Rwv3p36qlT6s="/>
         <field:display field="id_oferta_demandante" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_demandante" object="${ofertatrabajo}" z="DlT8u5e6t2lkDXGXrJdDt66NlV8="/>
+        <field:display field="nombre" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_nombre" object="${ofertatrabajo}" z="dMr4kwqFnXCJ3yn0ESarBkv0tno="/>
+        <field:display field="descripcion" id="s_es_uca_iw_myjob_domain_OfertaTrabajo_descripcion" object="${ofertatrabajo}" z="kaLRn2n7HYO9kMgcTLCxG/FB9GY="/>
     </page:show>
 </div>

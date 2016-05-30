@@ -3,8 +3,10 @@
 
 package es.uca.iw.myjob.domain;
 
+import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.Empresa;
 import es.uca.iw.myjob.domain.Usuario;
+import es.uca.iw.myjob.reference.Rol;
 import es.uca.iw.myjob.reference.TipoUsuario;
 import java.util.Date;
 import java.util.Set;
@@ -43,20 +45,44 @@ privileged aspect Usuario_Roo_JavaBean {
         this.email = email;
     }
     
-    public TipoUsuario Usuario.getTipo_usuario() {
-        return this.tipo_usuario;
-    }
-    
-    public void Usuario.setTipo_usuario(TipoUsuario tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
-    }
-    
     public Set<Empresa> Usuario.getId_usuario() {
         return this.id_usuario;
     }
     
     public void Usuario.setId_usuario(Set<Empresa> id_usuario) {
         this.id_usuario = id_usuario;
+    }
+    
+    public Set<Demandante> Usuario.getId_demandante() {
+        return this.id_demandante;
+    }
+    
+    public void Usuario.setId_demandante(Set<Demandante> id_demandante) {
+        this.id_demandante = id_demandante;
+    }
+    
+    public String Usuario.getEnabled() {
+        return this.enabled;
+    }
+    
+    public void Usuario.setEnabled(String enabled) {
+        this.enabled = enabled;
+    }
+    
+    public Rol Usuario.getRol() {
+        return this.rol;
+    }
+    
+    public void Usuario.setRol(Rol rol) {
+        this.rol = rol;
+    }
+    
+    public TipoUsuario Usuario.getTipoUsuario() {
+        return this.tipoUsuario;
+    }
+    
+    public void Usuario.setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
     
 }

@@ -28,15 +28,25 @@ privileged aspect OfertaTrabajoDataOnDemand_Roo_DataOnDemand {
     
     public OfertaTrabajo OfertaTrabajoDataOnDemand.getNewTransientOfertaTrabajo(int index) {
         OfertaTrabajo obj = new OfertaTrabajo();
+        setDescripcion(obj, index);
         setEstado_empleo(obj, index);
         setExperiencia_previa(obj, index);
         setFecha_aprox_inic(obj, index);
         setFormacion(obj, index);
+        setNombre(obj, index);
         setNum_vacantes(obj, index);
         setPerfil(obj, index);
         setSueldo_bruto(obj, index);
         setTipologia_contrato(obj, index);
         return obj;
+    }
+    
+    public void OfertaTrabajoDataOnDemand.setDescripcion(OfertaTrabajo obj, int index) {
+        String descripcion = "descripcion_" + index;
+        if (descripcion.length() > 255) {
+            descripcion = descripcion.substring(0, 255);
+        }
+        obj.setDescripcion(descripcion);
     }
     
     public void OfertaTrabajoDataOnDemand.setEstado_empleo(OfertaTrabajo obj, int index) {
@@ -60,6 +70,14 @@ privileged aspect OfertaTrabajoDataOnDemand_Roo_DataOnDemand {
             formacion = formacion.substring(0, 30);
         }
         obj.setFormacion(formacion);
+    }
+    
+    public void OfertaTrabajoDataOnDemand.setNombre(OfertaTrabajo obj, int index) {
+        String nombre = "nombre_" + index;
+        if (nombre.length() > 30) {
+            nombre = nombre.substring(0, 30);
+        }
+        obj.setNombre(nombre);
     }
     
     public void OfertaTrabajoDataOnDemand.setNum_vacantes(OfertaTrabajo obj, int index) {

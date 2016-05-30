@@ -7,7 +7,10 @@
         <field:input field="password" id="c_es_uca_iw_myjob_domain_Usuario_password" max="30" min="9" required="true" z="35Rc+JGA38mM3BoSplQgiO9n4HM="/>
         <field:datetime dateTimePattern="${usuario_fecha_registro_date_format}" field="fecha_registro" id="c_es_uca_iw_myjob_domain_Usuario_fecha_registro" past="true" required="true" z="fo/lDIHtGPyHrV9zX3qszAWPQH0="/>
         <field:input field="email" id="c_es_uca_iw_myjob_domain_Usuario_email" max="30" min="6" required="true" validationMessageCode="field_invalid_email" z="GN/ByM/wOm7CSqczpoXJxs6wQ+w="/>
-        <field:select field="tipo_usuario" id="c_es_uca_iw_myjob_domain_Usuario_tipo_usuario" items="${tipousuarios}" path="tipousuarios" z="BdvcVr0G44AcXCcuufsvDAyCF4g="/>
         <field:simple field="id_usuario" id="c_es_uca_iw_myjob_domain_Usuario_id_usuario" messageCode="entity_reference_not_managed" messageCodeAttribute="Empresa" z="d5OnYq9nxNUSiWX8DHNDq6q9+9Y="/>
+        <field:simple field="id_demandante" id="c_es_uca_iw_myjob_domain_Usuario_id_demandante" messageCode="entity_reference_not_managed" messageCodeAttribute="Demandante" z="8FvlG5MamZFdkddemvJtZF7/WRc="/>
+        <field:input field="enabled" id="c_es_uca_iw_myjob_domain_Usuario_enabled" max="3" z="WwFBGXOmup29TkEMQ8Kw+i86tA4="/>
+        <field:select field="rol" id="c_es_uca_iw_myjob_domain_Usuario_rol" items="${rols}" path="rols" required="true" z="5efuumZ12edCZHCyW0i23kSbO8g="/>
+        <field:select field="tipoUsuario" id="c_es_uca_iw_myjob_domain_Usuario_tipoUsuario" items="${tipousuarios}" path="tipousuarios" required="true" z="sDIMzLYDgbnndNv0epAp7+glfWg="/>
     </form:update>
 </div>

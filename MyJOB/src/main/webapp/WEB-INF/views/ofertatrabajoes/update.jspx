@@ -13,5 +13,7 @@
         <field:select field="estado_empleo" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_estado_empleo" items="${estadoempleos}" path="estadoempleos" z="JOX9PReii3uVJQ1IMtXlOd75blQ="/>
         <field:simple field="id_oferta_empresa" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_empresa" messageCode="entity_reference_not_managed" messageCodeAttribute="Empresa" z="32M8Ymma7wvkViMzBarm6NQZ198="/>
         <field:select field="id_oferta_demandante" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_demandante" itemValue="id" items="${demandantes}" multiple="true" path="/demandantes" z="dr+VzGXy4n1dcDLJvHTEX26ONdE="/>
+        <field:input field="nombre" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_nombre" max="30" min="3" required="true" z="EvA8gfQschCIxYiBVl07vpsBSVA="/>
+        <field:textarea field="descripcion" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_descripcion" z="BkcNirGDfexTf0TbvkmHmbW6sJA="/>
     </form:update>
 </div>

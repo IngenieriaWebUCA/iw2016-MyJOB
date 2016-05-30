@@ -103,3 +103,73 @@ web mvc fancytree add edit --controller ~.web.UsuarioController --page editable_
 web mvc datatables add --type ~.web.UsuarioController --mode show
 web mvc datatables add --type ~.web.UsuarioController
 // Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-21 13:50:48
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-25 19:06:10
+security setup
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-25 19:29:45
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-28 11:56:45
+entity jpa --class es.uca.iw.myjob.domain.TipoUsuario --testAutomatically
+field string --fieldName nombre --notNull --sizeMin 3 --sizeMax 30 --class es.uca.iw.myjob.domain.TipoUsuario
+field set --class  es.uca.iw.myjob.domain.TipoUsuario --fieldName roles --type  es.uca.iw.myjob.domain.Usuario --mappedBy roles --notNull false --cardinality ONE_TO_MANY
+focus --class ~.domain.Usuario
+field reference --fieldName roles --type ~.domain.TipoUsuario
+focus --class ~.domain.Usuario
+field set --class  es.uca.iw.myjob.domain.Usuario --fieldName id_demandante --type  es.uca.iw.myjob.domain.Demandante --mappedBy usuariod --notNull false --cardinality ONE_TO_MANY
+focus --class ~.domain.Demandante
+field reference --fieldName usuariod --type ~.domain.Usuario
+web mvc all --package ~.web
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-28 22:44:04
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-29 13:17:16
+field string --fieldName nombre --sizeMin 3 --sizeMax 30 --class ~.domain.OfertaTrabajo
+field string --fieldName descripcion --sizeMax 255
+finder add --finderName findOfertaTrabajosBynombreAndsueldo_bruto --class ~.domain.OfertaTrabajo
+finder add --finderName buscarOfertaTrabajo --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajosBynombre --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajosByName --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajosByNameAndWeight --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajosByNombreAndSueldo_Bruto --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajosByNombre --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertasTrabajosByNombre --class ~.domain.OfertaTrabajo
+finder add --finderName findEmpresasByNombre --class ~.domain.OfertaTrabajo
+finder add --finderName findEmpresasByNombre --class ~.domain.Empresa
+finder add --finderName findOfertatrabajosByNombre --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajosByNombre --class ~.domain.OfertaTrabajo
+focus --class ~.domain.Empresa
+finder add --finderName findTrabajosByNombre --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajoesByNombre --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajoesByNombreAndTipologia_contrato --class ~.domain.OfertaTrabajo
+web mvc finder all
+finder add --finderName findOfertaTrabajoesByNombreOrTipologia_contratoOrSueldo_brutoOrFecha_aprox_inicOrNum_vacantesOrFormacionOrExperiencia_previa --class ~.domain.OfertaTrabajo
+web mvc finder all
+finder list --class ~.domain.OfertaTrabajo
+web mvc finder all
+// [failed] finder list --class ~.domain.OfertaTrabajo
+// [failed] finder list --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajoesByNombreOrTipologia_contratoOrSueldo_brutoOrFecha_aprox_inicOrNum_vacantesOrFormacionOrExperiencia_previa --class ~.domain.OfertaTrabajo
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-29 14:11:58
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-29 14:12:15
+// [failed] finder list --class ~.domain.OfertaTrabajo
+finder list --class ~.domain.OfertaTrabajo
+finder add --finderName findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull --class ~.domain.OfertaTrabajo
+web mvc finder all
+web mvc finder all
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-29 14:17:17
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-29 14:17:29
+web mvc finder all
+finder list --class ~.domain.OfertaTrabajo
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-29 17:21:01
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-30 18:01:24
+field string --fieldName enabled --sizeMax 3 --class ~.domain.Usuario
+enum type --class ~.reference.Rol
+enum constant --name ROL_ADMIN
+enum constant --name ROL_USER
+enum constant --name ROL_DEMANDANTE
+enum constant --name ROL_EMPRESA
+focus --class ~.domain.Usuario
+field enum --fieldName type --type ~.reference.PetType --notNull
+field enum --fieldName rol --type ~.reference.Rol --notNull
+enum type --class ~.reference.TipoUsuario
+enum constant --name Empresa
+enum constant --name Demandante
+field enum --fieldName tipoUsuario --type ~.reference.TipoUsuario --notNull
+focus --class ~.domain.Usuario
+field enum --fieldName tipoUsuario --type ~.reference.TipoUsuario --notNull

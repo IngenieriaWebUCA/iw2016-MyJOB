@@ -9,12 +9,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 import org.springframework.format.annotation.DateTimeFormat;
-import es.uca.iw.myjob.reference.TipoUsuario;
-import javax.persistence.Enumerated;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Enumerated;
+import es.uca.iw.myjob.reference.Rol;
+import es.uca.iw.myjob.reference.TipoUsuario;
 
 @RooJavaBean
 @RooToString
@@ -48,11 +50,28 @@ public class Usuario {
 
     /**
      */
-    @Enumerated
-    private TipoUsuario tipo_usuario;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    private Set<Empresa> id_usuario = new HashSet<Empresa>();
 
     /**
      */
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-    private Set<Empresa> id_usuario = new HashSet<Empresa>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuariod")
+    private Set<Demandante> id_demandante = new HashSet<Demandante>();
+
+    /**
+     */
+    @Size(max = 3)
+    private String enabled;
+
+    /**
+     */
+    @NotNull
+    @Enumerated
+    private Rol rol;
+
+    /**
+     */
+    @NotNull
+    @Enumerated
+    private TipoUsuario tipoUsuario;
 }

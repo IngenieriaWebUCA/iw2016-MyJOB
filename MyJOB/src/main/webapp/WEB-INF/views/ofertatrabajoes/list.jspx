@@ -8,8 +8,8 @@
             <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_sueldo_bruto" property="sueldo_bruto" z="hlbqs4E/dLO/f31X3xhtfv0clvc="/>
             <table:column date="true" dateTimePattern="${ofertaTrabajo_fecha_aprox_inic_date_format}" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_fecha_aprox_inic" property="fecha_aprox_inic" z="jYSzhabRFsqBYPikkrEQHDpy5Y8="/>
             <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_num_vacantes" property="num_vacantes" z="BR3VTXKTx9RcHin3NNsRGgr3lHE="/>
-            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_perfil" property="perfil" z="QunddMQW812ozzgO/aegYHXU6Ww="/>
-            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_formacion" property="formacion" z="JbVRLeOT45/LyKjfHtBz7/GlbjY="/>
+            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_nombre" property="nombre" z="Ni82Nw8EDr6rOnnqv3b1z3HbGHQ="/>
+            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_descripcion" property="descripcion" z="74Ia2bnvkNKFT2SdJOQa7T07XWo="/>
         </table:table>
     </page:list>
 </div>

@@ -83,4 +83,9 @@ public class Demandante {
      */
     @ManyToOne
     private Perfil perfil;
+
+    /**
+     */
+    @ManyToOne
+    private Usuario usuariod;
 }

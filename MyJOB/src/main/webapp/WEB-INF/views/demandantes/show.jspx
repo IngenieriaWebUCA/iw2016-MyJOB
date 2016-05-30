@@ -15,5 +15,6 @@
         <field:display field="estado" id="s_es_uca_iw_myjob_domain_Demandante_estado" object="${demandante}" z="lgzXi24qXzANWm9cgFImddEYHm4="/>
         <field:display field="ofertademandante" id="s_es_uca_iw_myjob_domain_Demandante_ofertademandante" object="${demandante}" z="tnEDtMdOAPphV49j93jqT/6mx/8="/>
         <field:display field="perfil" id="s_es_uca_iw_myjob_domain_Demandante_perfil" object="${demandante}" z="t3rw5tWXwyUCREDyIBAVAkNKvRw="/>
+        <field:display field="usuariod" id="s_es_uca_iw_myjob_domain_Demandante_usuariod" object="${demandante}" z="lFXsl2Hgw8INgYkZ86kAFvn3d3U="/>
     </page:show>
 </div>

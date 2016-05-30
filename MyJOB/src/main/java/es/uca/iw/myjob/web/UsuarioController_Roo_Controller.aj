@@ -3,8 +3,10 @@
 
 package es.uca.iw.myjob.web;
 
+import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.Empresa;
 import es.uca.iw.myjob.domain.Usuario;
+import es.uca.iw.myjob.reference.Rol;
 import es.uca.iw.myjob.reference.TipoUsuario;
 import es.uca.iw.myjob.web.UsuarioController;
 import java.io.UnsupportedEncodingException;
@@ -98,7 +100,9 @@ privileged aspect UsuarioController_Roo_Controller {
     void UsuarioController.populateEditForm(Model uiModel, Usuario usuario) {
         uiModel.addAttribute("usuario", usuario);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("demandantes", Demandante.findAllDemandantes());
         uiModel.addAttribute("empresas", Empresa.findAllEmpresas());
+        uiModel.addAttribute("rols", Arrays.asList(Rol.values()));
         uiModel.addAttribute("tipousuarios", Arrays.asList(TipoUsuario.values()));
     }
     

@@ -7,6 +7,7 @@ import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.DemandanteDataOnDemand;
 import es.uca.iw.myjob.domain.OfertaTrabajoDataOnDemand;
 import es.uca.iw.myjob.domain.PerfilDataOnDemand;
+import es.uca.iw.myjob.domain.UsuarioDataOnDemand;
 import es.uca.iw.myjob.reference.EstadoOferta;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -32,6 +33,9 @@ privileged aspect DemandanteDataOnDemand_Roo_DataOnDemand {
     
     @Autowired
     PerfilDataOnDemand DemandanteDataOnDemand.perfilDataOnDemand;
+    
+    @Autowired
+    UsuarioDataOnDemand DemandanteDataOnDemand.usuarioDataOnDemand;
     
     public Demandante DemandanteDataOnDemand.getNewTransientDemandante(int index) {
         Demandante obj = new Demandante();

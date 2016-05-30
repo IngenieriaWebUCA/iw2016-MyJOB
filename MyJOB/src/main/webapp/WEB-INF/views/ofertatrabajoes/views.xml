@@ -13,4 +13,16 @@
 <definition extends="default" name="ofertatrabajoes/update">
         <put-attribute name="body" value="/WEB-INF/views/ofertatrabajoes/update.jspx"/>
     </definition>
+<definition extends="default" name="ofertatrabajoes/findOfertaTrabajoesByNombre">
+        <put-attribute name="body" value="/WEB-INF/views/ofertatrabajoes/findOfertaTrabajoesByNombre.jspx"/>
+    </definition>
+<definition extends="default" name="ofertatrabajoes/findOfertaTrabajoesByNombreAndTipologia_contrato">
+        <put-attribute name="body" value="/WEB-INF/views/ofertatrabajoes/findOfertaTrabajoesByNombreAndTipologia_contrato.jspx"/>
+    </definition>
+<definition extends="default" name="ofertatrabajoes/findOfertaTrabajoesByNombreOrTipologia_contratoOrSueldo_brutoOrFecha_aprox_inicOrNum_vacantesOrFormacionOrExperiencia_previa">
+        <put-attribute name="body" value="/WEB-INF/views/ofertatrabajoes/findOfertaTrabajoesByNombreOrTipologia_contratoOrSueldo_brutoOrFecha_aprox_inicOrNum_vacantesOrFormacionOrExperiencia_previa.jspx"/>
+    </definition>
+<definition extends="default" name="ofertatrabajoes/findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull">
+        <put-attribute name="body" value="/WEB-INF/views/ofertatrabajoes/findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull.jspx"/>
+    </definition>
 </tiles-definitions>
