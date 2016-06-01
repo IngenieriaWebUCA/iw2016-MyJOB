@@ -173,3 +173,25 @@ enum constant --name Demandante
 field enum --fieldName tipoUsuario --type ~.reference.TipoUsuario --notNull
 focus --class ~.domain.Usuario
 field enum --fieldName tipoUsuario --type ~.reference.TipoUsuario --notNull
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-30 21:32:24
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-05-31 16:46:32
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-05-31 20:09:56
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-01 18:06:29
+finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findofertatrabajoesByFormacionLike
+finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findOfertaTrabajoesByFormacionLike
+finder list --class ~.domain.OfertaTrabajo
+web mvc finder all
+finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoByNombreLike
+finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesByNombreLike
+finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findOfertaTrabajoesBytipologia_contratoLike
+finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findOfertaTrabajoesBytipologiacontratoLike
+finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findOfertaTrabajoesByTipologiaContratoLike
+finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findOfertaTrabajoesByTipologia_ContratoLike
+finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBytipologia_contratoLike
+finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBytipologiacontratoLike
+finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBySueldoBrutoBetween
+finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findOfertaTrabajoesBytipologiacontratoLike
+finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findOfertaTrabajoesBytipologiacontratoLike
+finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBysueldobrutoBetween
+finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBySueldoBrutoBetween
+finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBySueldoBrutoLike

@@ -8,7 +8,6 @@
             <table:column id="c_es_uca_iw_myjob_domain_Usuario_password" property="password" z="2JnpNb386tKpXx4knpepQjwrGHY="/>
             <table:column date="true" dateTimePattern="${usuario_fecha_registro_date_format}" id="c_es_uca_iw_myjob_domain_Usuario_fecha_registro" property="fecha_registro" z="sPPtcUaZtESbE3/LA8Kkbm1Ds8M="/>
             <table:column id="c_es_uca_iw_myjob_domain_Usuario_email" property="email" z="uBwzjLKkqwuNtVY3HJuplzH14kI="/>
-            <table:column id="c_es_uca_iw_myjob_domain_Usuario_roles" property="roles" z="9LuLzdmGcZggavflaEnL/OLMYnE="/>
         </table:table>
     </page:list>
 </div>

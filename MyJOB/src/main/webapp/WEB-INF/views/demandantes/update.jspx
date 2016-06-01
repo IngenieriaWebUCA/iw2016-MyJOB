@@ -10,8 +10,6 @@
         <field:input field="dir_actual" id="c_es_uca_iw_myjob_domain_Demandante_dir_actual" required="true" z="ozStI5yQt08rYIIpLV8CK+iT/gw="/>
         <field:input field="email" id="c_es_uca_iw_myjob_domain_Demandante_email" max="30" min="6" required="true" validationMessageCode="field_invalid_email" z="U+tfLV5kISsNXE5ANPHmbdk0MMI="/>
         <field:input field="telefono" id="c_es_uca_iw_myjob_domain_Demandante_telefono" required="true" z="M8zEUJIOD+MVV+i4j6hG78AVR0I="/>
-        <field:input field="usuario" id="c_es_uca_iw_myjob_domain_Demandante_usuario" max="30" min="6" required="true" z="9HdUtPzQXq6z+nmGD+MYw4p6jlU="/>
-        <field:input field="password" id="c_es_uca_iw_myjob_domain_Demandante_password" max="30" min="6" required="true" z="WBLH/eNDOY/zIe+fdfzoU1HIXV4="/>
         <field:select field="estado" id="c_es_uca_iw_myjob_domain_Demandante_estado" items="${estadoofertas}" path="estadoofertas" z="q1hE74xKmHgfHElPMZohcAW5vIc="/>
         <field:select field="ofertademandante" id="c_es_uca_iw_myjob_domain_Demandante_ofertademandante" itemValue="id" items="${ofertatrabajoes}" path="/ofertatrabajoes" z="XvhmbC6AH2sEcW+EJNeTK1a9Fzk="/>
         <field:select field="perfil" id="c_es_uca_iw_myjob_domain_Demandante_perfil" itemValue="id" items="${perfils}" path="/perfils" z="cFP+kBTSaMFCeKcVMhmIBtD4pYs="/>

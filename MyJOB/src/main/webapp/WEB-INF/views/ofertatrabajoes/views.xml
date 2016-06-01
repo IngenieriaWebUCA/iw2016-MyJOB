@@ -25,4 +25,10 @@
 <definition extends="default" name="ofertatrabajoes/findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull">
         <put-attribute name="body" value="/WEB-INF/views/ofertatrabajoes/findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull.jspx"/>
     </definition>
+<definition extends="default" name="ofertatrabajoes/findOfertaTrabajoesByFormacionLike">
+        <put-attribute name="body" value="/WEB-INF/views/ofertatrabajoes/findOfertaTrabajoesByFormacionLike.jspx"/>
+    </definition>
+<definition extends="default" name="ofertatrabajoes/findOfertaTrabajoesByNombreLike">
+        <put-attribute name="body" value="/WEB-INF/views/ofertatrabajoes/findOfertaTrabajoesByNombreLike.jspx"/>
+    </definition>
 </tiles-definitions>

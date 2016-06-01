@@ -19,10 +19,10 @@ import javax.persistence.ManyToMany;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(finders = { "findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull" })
+@RooJpaActiveRecord(finders = { "findOfertaTrabajoesByFormacionLike", "findOfertaTrabajoesByNombreLike" })
 public class OfertaTrabajo {
 
-	/**
+    /**
      */
     @Size(min = 3, max = 30)
     private String nombre;
@@ -31,30 +31,30 @@ public class OfertaTrabajo {
      */
     @Size(max = 255)
     private String descripcion;
-	
-	/**
+
+    /**
      */
     @NotNull
     @Size(min = 3, max = 30)
-    private String tipologia_contrato;
+    private String tipologiacontrato;
 
     /**
      */
     @NotNull
     @Min(0L)
-    private Float sueldo_bruto;
+    private Float sueldobruto;
 
     /**
      */
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
-    private Date fecha_aprox_inic;
+    private Date fechaaproxinic;
 
     /**
      */
     @NotNull
-    private String num_vacantes;
+    private String numvacantes;
 
     /**
      */
@@ -71,22 +71,20 @@ public class OfertaTrabajo {
     /**
      */
     @NotNull
-    private String experiencia_previa;
+    private String experienciaprevia;
 
     /**
      */
     @Enumerated
-    private EstadoEmpleo estado_empleo;
+    private EstadoEmpleo estadoempleo;
 
     /**
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "oferta")
-    private Set<Empresa> id_oferta_empresa = new HashSet<Empresa>();
+    private Set<Empresa> idofertaempresa = new HashSet<Empresa>();
 
     /**
      */
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "ofertademandante")
-    private Set<Demandante> id_oferta_demandante = new HashSet<Demandante>();
-
-    
+    private Set<Demandante> idofertademandante = new HashSet<Demandante>();
 }

@@ -68,22 +68,6 @@ privileged aspect Demandante_Roo_JavaBean {
         this.telefono = telefono;
     }
     
-    public String Demandante.getUsuario() {
-        return this.usuario;
-    }
-    
-    public void Demandante.setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-    
-    public String Demandante.getPassword() {
-        return this.password;
-    }
-    
-    public void Demandante.setPassword(String password) {
-        this.password = password;
-    }
-    
     public EstadoOferta Demandante.getEstado() {
         return this.estado;
     }

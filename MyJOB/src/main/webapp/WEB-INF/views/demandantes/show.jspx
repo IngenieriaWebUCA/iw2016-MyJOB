@@ -10,8 +10,6 @@
         <field:display field="dir_actual" id="s_es_uca_iw_myjob_domain_Demandante_dir_actual" object="${demandante}" z="vwdnF+qjxgBtzY6sYGa5AAZfnXc="/>
         <field:display field="email" id="s_es_uca_iw_myjob_domain_Demandante_email" object="${demandante}" z="BsGMXV18i/s9dV16QUrjVeHZK5g="/>
         <field:display field="telefono" id="s_es_uca_iw_myjob_domain_Demandante_telefono" object="${demandante}" z="+dieWQ8Yx4iAUynvhmacXVap/CY="/>
-        <field:display field="usuario" id="s_es_uca_iw_myjob_domain_Demandante_usuario" object="${demandante}" z="JK/M1kv/AwY/uy99RfyhkPiC21s="/>
-        <field:display field="password" id="s_es_uca_iw_myjob_domain_Demandante_password" object="${demandante}" z="DRcZ84R9bwpxwIf4YnkbZSZUFsI="/>
         <field:display field="estado" id="s_es_uca_iw_myjob_domain_Demandante_estado" object="${demandante}" z="lgzXi24qXzANWm9cgFImddEYHm4="/>
         <field:display field="ofertademandante" id="s_es_uca_iw_myjob_domain_Demandante_ofertademandante" object="${demandante}" z="tnEDtMdOAPphV49j93jqT/6mx/8="/>
         <field:display field="perfil" id="s_es_uca_iw_myjob_domain_Demandante_perfil" object="${demandante}" z="t3rw5tWXwyUCREDyIBAVAkNKvRw="/>

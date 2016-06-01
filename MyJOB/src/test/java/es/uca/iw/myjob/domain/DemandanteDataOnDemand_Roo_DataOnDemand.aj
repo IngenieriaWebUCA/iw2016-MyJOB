@@ -45,10 +45,8 @@ privileged aspect DemandanteDataOnDemand_Roo_DataOnDemand {
         setEstado(obj, index);
         setFecha_nacimiento(obj, index);
         setNombre(obj, index);
-        setPassword(obj, index);
         setSexo(obj, index);
         setTelefono(obj, index);
-        setUsuario(obj, index);
         return obj;
     }
     
@@ -91,14 +89,6 @@ privileged aspect DemandanteDataOnDemand_Roo_DataOnDemand {
         obj.setNombre(nombre);
     }
     
-    public void DemandanteDataOnDemand.setPassword(Demandante obj, int index) {
-        String password = "password_" + index;
-        if (password.length() > 30) {
-            password = password.substring(0, 30);
-        }
-        obj.setPassword(password);
-    }
-    
     public void DemandanteDataOnDemand.setSexo(Demandante obj, int index) {
         String sexo = "sexo_" + index;
         obj.setSexo(sexo);
@@ -107,14 +97,6 @@ privileged aspect DemandanteDataOnDemand_Roo_DataOnDemand {
     public void DemandanteDataOnDemand.setTelefono(Demandante obj, int index) {
         String telefono = "telefono_" + index;
         obj.setTelefono(telefono);
-    }
-    
-    public void DemandanteDataOnDemand.setUsuario(Demandante obj, int index) {
-        String usuario = "usuario_" + index;
-        if (usuario.length() > 30) {
-            usuario = usuario.substring(0, 30);
-        }
-        obj.setUsuario(usuario);
     }
     
     public Demandante DemandanteDataOnDemand.getSpecificDemandante(int index) {

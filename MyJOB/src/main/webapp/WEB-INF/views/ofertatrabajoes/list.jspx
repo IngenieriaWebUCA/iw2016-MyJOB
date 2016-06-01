@@ -4,12 +4,12 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_es_uca_iw_myjob_domain_OfertaTrabajo" items="${ofertatrabajoes}" z="6LOXuFcLl10GVwwioKUzBpZqqFQ=">
         <table:table data="${ofertatrabajoes}" id="l_es_uca_iw_myjob_domain_OfertaTrabajo" path="/ofertatrabajoes" z="qUryj4OCIooR5jHr42H55fuaKUQ=">
-            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_tipologia_contrato" property="tipologia_contrato" z="NE2X+mYuIqyrjfrJFSZBtA4M6cA="/>
-            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_sueldo_bruto" property="sueldo_bruto" z="hlbqs4E/dLO/f31X3xhtfv0clvc="/>
-            <table:column date="true" dateTimePattern="${ofertaTrabajo_fecha_aprox_inic_date_format}" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_fecha_aprox_inic" property="fecha_aprox_inic" z="jYSzhabRFsqBYPikkrEQHDpy5Y8="/>
-            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_num_vacantes" property="num_vacantes" z="BR3VTXKTx9RcHin3NNsRGgr3lHE="/>
             <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_nombre" property="nombre" z="Ni82Nw8EDr6rOnnqv3b1z3HbGHQ="/>
             <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_descripcion" property="descripcion" z="74Ia2bnvkNKFT2SdJOQa7T07XWo="/>
+            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_tipologiacontrato" property="tipologiacontrato" z="5YQGkVb+P7ItVuxPpgE1O3mPPF0="/>
+            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_sueldobruto" property="sueldobruto" z="2QOqDq4DH7Dm61b24hvSaq1DAHQ="/>
+            <table:column date="true" dateTimePattern="${ofertaTrabajo_fechaaproxinic_date_format}" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_fechaaproxinic" property="fechaaproxinic" z="AWF6XWtuvXta9RrmqjTizx/7zhE="/>
+            <table:column id="c_es_uca_iw_myjob_domain_OfertaTrabajo_numvacantes" property="numvacantes" z="7rxi/7xilGoKA2sBBD81AM3MAzM="/>
         </table:table>
     </page:list>
 </div>

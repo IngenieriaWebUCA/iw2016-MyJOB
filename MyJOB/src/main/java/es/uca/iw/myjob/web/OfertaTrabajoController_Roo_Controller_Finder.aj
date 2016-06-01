@@ -12,23 +12,41 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 privileged aspect OfertaTrabajoController_Roo_Controller_Finder {
     
-    @RequestMapping(params = { "find=ByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull", "form" }, method = RequestMethod.GET)
-    public String OfertaTrabajoController.findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNullForm() {
-        return "ofertatrabajoes/findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull";
+    @RequestMapping(params = { "find=ByFormacionLike", "form" }, method = RequestMethod.GET)
+    public String OfertaTrabajoController.findOfertaTrabajoesByFormacionLikeForm(Model uiModel) {
+        return "ofertatrabajoes/findOfertaTrabajoesByFormacionLike";
     }
     
-    @RequestMapping(params = "find=ByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull", method = RequestMethod.GET)
-    public String OfertaTrabajoController.findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+    @RequestMapping(params = "find=ByFormacionLike", method = RequestMethod.GET)
+    public String OfertaTrabajoController.findOfertaTrabajoesByFormacionLike(@RequestParam("formacion") String formacion, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull(sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
-            float nrOfPages = (float) OfertaTrabajo.countFindOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull() / sizeNo;
+            uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findOfertaTrabajoesByFormacionLike(formacion, sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
+            float nrOfPages = (float) OfertaTrabajo.countFindOfertaTrabajoesByFormacionLike(formacion) / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull( sortFieldName, sortOrder).getResultList());
+            uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findOfertaTrabajoesByFormacionLike(formacion, sortFieldName, sortOrder).getResultList());
         }
-        addDateTimeFormatPatterns(uiModel);
+        return "ofertatrabajoes/list";
+    }
+    
+    @RequestMapping(params = { "find=ByNombreLike", "form" }, method = RequestMethod.GET)
+    public String OfertaTrabajoController.findOfertaTrabajoesByNombreLikeForm(Model uiModel) {
+        return "ofertatrabajoes/findOfertaTrabajoesByNombreLike";
+    }
+    
+    @RequestMapping(params = "find=ByNombreLike", method = RequestMethod.GET)
+    public String OfertaTrabajoController.findOfertaTrabajoesByNombreLike(@RequestParam("nombre") String nombre, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
+        if (page != null || size != null) {
+            int sizeNo = size == null ? 10 : size.intValue();
+            final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
+            uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findOfertaTrabajoesByNombreLike(nombre, sortFieldName, sortOrder).setFirstResult(firstResult).setMaxResults(sizeNo).getResultList());
+            float nrOfPages = (float) OfertaTrabajo.countFindOfertaTrabajoesByNombreLike(nombre) / sizeNo;
+            uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
+        } else {
+            uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findOfertaTrabajoesByNombreLike(nombre, sortFieldName, sortOrder).getResultList());
+        }
         return "ofertatrabajoes/list";
     }
     

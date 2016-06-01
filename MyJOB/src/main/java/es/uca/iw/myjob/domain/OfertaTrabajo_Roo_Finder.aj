@@ -9,21 +9,62 @@ import javax.persistence.TypedQuery;
 
 privileged aspect OfertaTrabajo_Roo_Finder {
     
-    public static Long OfertaTrabajo.countFindOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull() {
+    public static Long OfertaTrabajo.countFindOfertaTrabajoesByFormacionLike(String formacion) {
+        if (formacion == null || formacion.length() == 0) throw new IllegalArgumentException("The formacion argument is required");
+        formacion = formacion.replace('*', '%');
+        if (formacion.charAt(0) != '%') {
+            formacion = "%" + formacion;
+        }
+        if (formacion.charAt(formacion.length() - 1) != '%') {
+            formacion = formacion + "%";
+        }
         EntityManager em = OfertaTrabajo.entityManager();
-        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM OfertaTrabajo AS o WHERE o.nombre IS NULL  OR o.tipologia_contrato IS NULL  OR o.sueldo_bruto IS NULL  OR o.fecha_aprox_inic IS NULL  OR o.num_vacantes IS NULL  OR o.formacion IS NULL  OR o.experiencia_previa IS NULL", Long.class);
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM OfertaTrabajo AS o WHERE LOWER(o.formacion) LIKE LOWER(:formacion)", Long.class);
+        q.setParameter("formacion", formacion);
         return ((Long) q.getSingleResult());
     }
     
-    public static TypedQuery<OfertaTrabajo> OfertaTrabajo.findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull() {
+    public static Long OfertaTrabajo.countFindOfertaTrabajoesByNombreLike(String nombre) {
+        if (nombre == null || nombre.length() == 0) throw new IllegalArgumentException("The nombre argument is required");
+        nombre = nombre.replace('*', '%');
+        if (nombre.charAt(0) != '%') {
+            nombre = "%" + nombre;
+        }
+        if (nombre.charAt(nombre.length() - 1) != '%') {
+            nombre = nombre + "%";
+        }
         EntityManager em = OfertaTrabajo.entityManager();
-        TypedQuery<OfertaTrabajo> q = em.createQuery("SELECT o FROM OfertaTrabajo AS o WHERE o.nombre IS NULL  OR o.tipologia_contrato IS NULL  OR o.sueldo_bruto IS NULL  OR o.fecha_aprox_inic IS NULL  OR o.num_vacantes IS NULL  OR o.formacion IS NULL  OR o.experiencia_previa IS NULL", OfertaTrabajo.class);
+        TypedQuery q = em.createQuery("SELECT COUNT(o) FROM OfertaTrabajo AS o WHERE LOWER(o.nombre) LIKE LOWER(:nombre)", Long.class);
+        q.setParameter("nombre", nombre);
+        return ((Long) q.getSingleResult());
+    }
+    
+    public static TypedQuery<OfertaTrabajo> OfertaTrabajo.findOfertaTrabajoesByFormacionLike(String formacion) {
+        if (formacion == null || formacion.length() == 0) throw new IllegalArgumentException("The formacion argument is required");
+        formacion = formacion.replace('*', '%');
+        if (formacion.charAt(0) != '%') {
+            formacion = "%" + formacion;
+        }
+        if (formacion.charAt(formacion.length() - 1) != '%') {
+            formacion = formacion + "%";
+        }
+        EntityManager em = OfertaTrabajo.entityManager();
+        TypedQuery<OfertaTrabajo> q = em.createQuery("SELECT o FROM OfertaTrabajo AS o WHERE LOWER(o.formacion) LIKE LOWER(:formacion)", OfertaTrabajo.class);
+        q.setParameter("formacion", formacion);
         return q;
     }
     
-    public static TypedQuery<OfertaTrabajo> OfertaTrabajo.findOfertaTrabajoesByNombreIsNullOrTipologia_contratoIsNullOrSueldo_brutoIsNullOrFecha_aprox_inicIsNullOrNum_vacantesIsNullOrFormacionIsNullOrExperiencia_previaIsNull(String sortFieldName, String sortOrder) {
+    public static TypedQuery<OfertaTrabajo> OfertaTrabajo.findOfertaTrabajoesByFormacionLike(String formacion, String sortFieldName, String sortOrder) {
+        if (formacion == null || formacion.length() == 0) throw new IllegalArgumentException("The formacion argument is required");
+        formacion = formacion.replace('*', '%');
+        if (formacion.charAt(0) != '%') {
+            formacion = "%" + formacion;
+        }
+        if (formacion.charAt(formacion.length() - 1) != '%') {
+            formacion = formacion + "%";
+        }
         EntityManager em = OfertaTrabajo.entityManager();
-        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM OfertaTrabajo AS o WHERE o.nombre IS NULL  OR o.tipologia_contrato IS NULL  OR o.sueldo_bruto IS NULL  OR o.fecha_aprox_inic IS NULL  OR o.num_vacantes IS NULL  OR o.formacion IS NULL  OR o.experiencia_previa IS NULL");
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM OfertaTrabajo AS o WHERE LOWER(o.formacion) LIKE LOWER(:formacion)");
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             queryBuilder.append(" ORDER BY ").append(sortFieldName);
             if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
@@ -31,6 +72,44 @@ privileged aspect OfertaTrabajo_Roo_Finder {
             }
         }
         TypedQuery<OfertaTrabajo> q = em.createQuery(queryBuilder.toString(), OfertaTrabajo.class);
+        q.setParameter("formacion", formacion);
+        return q;
+    }
+    
+    public static TypedQuery<OfertaTrabajo> OfertaTrabajo.findOfertaTrabajoesByNombreLike(String nombre) {
+        if (nombre == null || nombre.length() == 0) throw new IllegalArgumentException("The nombre argument is required");
+        nombre = nombre.replace('*', '%');
+        if (nombre.charAt(0) != '%') {
+            nombre = "%" + nombre;
+        }
+        if (nombre.charAt(nombre.length() - 1) != '%') {
+            nombre = nombre + "%";
+        }
+        EntityManager em = OfertaTrabajo.entityManager();
+        TypedQuery<OfertaTrabajo> q = em.createQuery("SELECT o FROM OfertaTrabajo AS o WHERE LOWER(o.nombre) LIKE LOWER(:nombre)", OfertaTrabajo.class);
+        q.setParameter("nombre", nombre);
+        return q;
+    }
+    
+    public static TypedQuery<OfertaTrabajo> OfertaTrabajo.findOfertaTrabajoesByNombreLike(String nombre, String sortFieldName, String sortOrder) {
+        if (nombre == null || nombre.length() == 0) throw new IllegalArgumentException("The nombre argument is required");
+        nombre = nombre.replace('*', '%');
+        if (nombre.charAt(0) != '%') {
+            nombre = "%" + nombre;
+        }
+        if (nombre.charAt(nombre.length() - 1) != '%') {
+            nombre = nombre + "%";
+        }
+        EntityManager em = OfertaTrabajo.entityManager();
+        StringBuilder queryBuilder = new StringBuilder("SELECT o FROM OfertaTrabajo AS o WHERE LOWER(o.nombre) LIKE LOWER(:nombre)");
+        if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
+            queryBuilder.append(" ORDER BY ").append(sortFieldName);
+            if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
+                queryBuilder.append(" ").append(sortOrder);
+            }
+        }
+        TypedQuery<OfertaTrabajo> q = em.createQuery(queryBuilder.toString(), OfertaTrabajo.class);
+        q.setParameter("nombre", nombre);
         return q;
     }
     

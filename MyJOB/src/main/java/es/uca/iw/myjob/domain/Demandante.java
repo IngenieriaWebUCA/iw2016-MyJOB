@@ -59,15 +59,6 @@ public class Demandante {
     @NotNull
     private String telefono;
 
-    /**
-     */
-    @Size(min = 6, max = 30)
-    private String usuario;
-
-    /**
-     */
-    @Size(min = 6, max = 30)
-    private String password;
 
     /**
      */
