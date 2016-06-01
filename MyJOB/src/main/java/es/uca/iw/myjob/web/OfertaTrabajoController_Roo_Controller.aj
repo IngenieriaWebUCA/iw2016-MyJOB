@@ -93,7 +93,7 @@ privileged aspect OfertaTrabajoController_Roo_Controller {
     }
     
     void OfertaTrabajoController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("ofertaTrabajo_fechaaproxinic_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ofertaTrabajo_fecha_aprox_inic_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     void OfertaTrabajoController.populateEditForm(Model uiModel, OfertaTrabajo ofertaTrabajo) {

@@ -36,25 +36,25 @@ public class OfertaTrabajo {
      */
     @NotNull
     @Size(min = 3, max = 30)
-    private String tipologiacontrato;
+    private String tipologia_contrato;
 
     /**
      */
     @NotNull
     @Min(0L)
-    private Float sueldobruto;
+    private Float sueldo_bruto;
 
     /**
      */
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
-    private Date fechaaproxinic;
+    private Date fecha_aprox_inic;
 
     /**
      */
     @NotNull
-    private String numvacantes;
+    private String num_vacantes;
 
     /**
      */
@@ -71,20 +71,20 @@ public class OfertaTrabajo {
     /**
      */
     @NotNull
-    private String experienciaprevia;
+    private String experiencia_previa;
 
     /**
      */
     @Enumerated
-    private EstadoEmpleo estadoempleo;
+    private EstadoEmpleo estado_empleo;
 
     /**
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "oferta")
-    private Set<Empresa> idofertaempresa = new HashSet<Empresa>();
+    private Set<Empresa> id_oferta_empresa = new HashSet<Empresa>();
 
     /**
      */
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "ofertademandante")
-    private Set<Demandante> idofertademandante = new HashSet<Demandante>();
+    private Set<Demandante> id_oferta_demandante = new HashSet<Demandante>();
 }

@@ -30,6 +30,7 @@
             <menu:category id="c_demandante" z="ap7hcwTTE7QpwHyV1OnSKrPHdQc=">
                 <menu:item id="i_demandante_new" messageCode="registrar_demandante" url="/demandantes?form" z="user-managed"/>
                 <menu:item id="i_perfil_new" messageCode="introducir_perfil" url="/perfils?form" z="user-managed"/>
+                <menu:item id="i_perfil_new" messageCode="global_menu_new" url="/perfils?form" z="o4iwt5RupWuivgX3bSp1Ge1LhlA="/>
                 <!-- <menu:item id="i_demandante_list" messageCode="global_menu_list" url="/demandantes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1MtvqFaAsZmIa4hZR8pApwIOdDY="/>-->
                 <menu:item id="i_demandante_list" messageCode="global_menu_list" url="/demandantes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1MtvqFaAsZmIa4hZR8pApwIOdDY="/>
                 <menu:item id="fi_ofertatrabajo_formacionlike" messageCode="global_menu_find" url="/ofertatrabajoes?find=ByFormacionLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="kBTCOFMeUd+Dgi0NwDXA3gc7Fb0="/>

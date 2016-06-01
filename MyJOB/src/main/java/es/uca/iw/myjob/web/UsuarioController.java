@@ -24,7 +24,7 @@ import org.gvnix.addon.datatables.annotations.GvNIXDatatables;
 @GvNIXDatatables(ajax = true)
 public class UsuarioController {
 	
-	@RequestMapping(method = RequestMethod.POST, produces = "text/html")
+	/*@RequestMapping(method = RequestMethod.POST, produces = "text/html")
 	public String create(@Valid Usuario usuario, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
 		if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, usuario);
@@ -49,5 +49,5 @@ public class UsuarioController {
 		//System.out.println("Esto es una prueba");
 		return "usuarios/show";
          
-	}
+	}*/
 }

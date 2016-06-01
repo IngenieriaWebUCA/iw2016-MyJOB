@@ -29,15 +29,15 @@ privileged aspect OfertaTrabajoDataOnDemand_Roo_DataOnDemand {
     public OfertaTrabajo OfertaTrabajoDataOnDemand.getNewTransientOfertaTrabajo(int index) {
         OfertaTrabajo obj = new OfertaTrabajo();
         setDescripcion(obj, index);
-        setEstadoempleo(obj, index);
-        setExperienciaprevia(obj, index);
-        setFechaaproxinic(obj, index);
+        setEstado_empleo(obj, index);
+        setExperiencia_previa(obj, index);
+        setFecha_aprox_inic(obj, index);
         setFormacion(obj, index);
         setNombre(obj, index);
-        setNumvacantes(obj, index);
+        setNum_vacantes(obj, index);
         setPerfil(obj, index);
-        setSueldobruto(obj, index);
-        setTipologiacontrato(obj, index);
+        setSueldo_bruto(obj, index);
+        setTipologia_contrato(obj, index);
         return obj;
     }
     
@@ -49,19 +49,19 @@ privileged aspect OfertaTrabajoDataOnDemand_Roo_DataOnDemand {
         obj.setDescripcion(descripcion);
     }
     
-    public void OfertaTrabajoDataOnDemand.setEstadoempleo(OfertaTrabajo obj, int index) {
-        EstadoEmpleo estadoempleo = EstadoEmpleo.class.getEnumConstants()[0];
-        obj.setEstadoempleo(estadoempleo);
+    public void OfertaTrabajoDataOnDemand.setEstado_empleo(OfertaTrabajo obj, int index) {
+        EstadoEmpleo estado_empleo = EstadoEmpleo.class.getEnumConstants()[0];
+        obj.setEstado_empleo(estado_empleo);
     }
     
-    public void OfertaTrabajoDataOnDemand.setExperienciaprevia(OfertaTrabajo obj, int index) {
-        String experienciaprevia = "experienciaprevia_" + index;
-        obj.setExperienciaprevia(experienciaprevia);
+    public void OfertaTrabajoDataOnDemand.setExperiencia_previa(OfertaTrabajo obj, int index) {
+        String experiencia_previa = "experiencia_previa_" + index;
+        obj.setExperiencia_previa(experiencia_previa);
     }
     
-    public void OfertaTrabajoDataOnDemand.setFechaaproxinic(OfertaTrabajo obj, int index) {
-        Date fechaaproxinic = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
-        obj.setFechaaproxinic(fechaaproxinic);
+    public void OfertaTrabajoDataOnDemand.setFecha_aprox_inic(OfertaTrabajo obj, int index) {
+        Date fecha_aprox_inic = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
+        obj.setFecha_aprox_inic(fecha_aprox_inic);
     }
     
     public void OfertaTrabajoDataOnDemand.setFormacion(OfertaTrabajo obj, int index) {
@@ -80,9 +80,9 @@ privileged aspect OfertaTrabajoDataOnDemand_Roo_DataOnDemand {
         obj.setNombre(nombre);
     }
     
-    public void OfertaTrabajoDataOnDemand.setNumvacantes(OfertaTrabajo obj, int index) {
-        String numvacantes = "numvacantes_" + index;
-        obj.setNumvacantes(numvacantes);
+    public void OfertaTrabajoDataOnDemand.setNum_vacantes(OfertaTrabajo obj, int index) {
+        String num_vacantes = "num_vacantes_" + index;
+        obj.setNum_vacantes(num_vacantes);
     }
     
     public void OfertaTrabajoDataOnDemand.setPerfil(OfertaTrabajo obj, int index) {
@@ -93,17 +93,17 @@ privileged aspect OfertaTrabajoDataOnDemand_Roo_DataOnDemand {
         obj.setPerfil(perfil);
     }
     
-    public void OfertaTrabajoDataOnDemand.setSueldobruto(OfertaTrabajo obj, int index) {
-        Float sueldobruto = new Integer(index).floatValue();
-        obj.setSueldobruto(sueldobruto);
+    public void OfertaTrabajoDataOnDemand.setSueldo_bruto(OfertaTrabajo obj, int index) {
+        Float sueldo_bruto = new Integer(index).floatValue();
+        obj.setSueldo_bruto(sueldo_bruto);
     }
     
-    public void OfertaTrabajoDataOnDemand.setTipologiacontrato(OfertaTrabajo obj, int index) {
-        String tipologiacontrato = "tipologiacontrato_" + index;
-        if (tipologiacontrato.length() > 30) {
-            tipologiacontrato = tipologiacontrato.substring(0, 30);
+    public void OfertaTrabajoDataOnDemand.setTipologia_contrato(OfertaTrabajo obj, int index) {
+        String tipologia_contrato = "tipologia_contrato_" + index;
+        if (tipologia_contrato.length() > 30) {
+            tipologia_contrato = tipologia_contrato.substring(0, 30);
         }
-        obj.setTipologiacontrato(tipologiacontrato);
+        obj.setTipologia_contrato(tipologia_contrato);
     }
     
     public OfertaTrabajo OfertaTrabajoDataOnDemand.getSpecificOfertaTrabajo(int index) {
