@@ -6,7 +6,6 @@ package es.uca.iw.myjob.domain;
 import es.uca.iw.myjob.domain.Usuario;
 import es.uca.iw.myjob.domain.UsuarioDataOnDemand;
 import es.uca.iw.myjob.reference.Rol;
-import es.uca.iw.myjob.reference.TipoUsuario;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,7 +31,6 @@ privileged aspect UsuarioDataOnDemand_Roo_DataOnDemand {
         setFecha_registro(obj, index);
         setPassword(obj, index);
         setRol(obj, index);
-        setTipoUsuario(obj, index);
         setUsername(obj, index);
         return obj;
     }
@@ -69,11 +67,6 @@ privileged aspect UsuarioDataOnDemand_Roo_DataOnDemand {
     public void UsuarioDataOnDemand.setRol(Usuario obj, int index) {
         Rol rol = Rol.class.getEnumConstants()[0];
         obj.setRol(rol);
-    }
-    
-    public void UsuarioDataOnDemand.setTipoUsuario(Usuario obj, int index) {
-        TipoUsuario tipoUsuario = TipoUsuario.class.getEnumConstants()[0];
-        obj.setTipoUsuario(tipoUsuario);
     }
     
     public void UsuarioDataOnDemand.setUsername(Usuario obj, int index) {

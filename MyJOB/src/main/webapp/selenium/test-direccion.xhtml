@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<link href="http://localhost:8080/" rel="selenium.base"/>
+<title>Selenium test for DireccionController</title>
+</head>
+<body>
+    <table border="1" cellpadding="1" cellspacing="1">
+        <thead>
+            <tr>
+                <td colspan="3" rowspan="1">Selenium test for DireccionController</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+                    <td>open</td>
+                    <td>http://localhost:8080/MyJOB/direccions?form&amp;lang=es_ES</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>_nombre_id</td>
+                    <td>someNombre1</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>_num_id</td>
+                    <td>someNum1</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>_cp_id</td>
+                    <td>someCp1</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>_pais_id</td>
+                    <td>somePais1</td>
+                </tr>
+                <tr>
+                    <td>clickAndWait</td>
+                    <td>//input[@id = 'proceed']</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>verifyText</td>
+                    <td>_s_es_uca_iw_myjob_domain_Direccion_nombre_nombre_id</td>
+                    <td>someNombre1</td>
+                </tr>
+                <tr>
+                    <td>verifyText</td>
+                    <td>_s_es_uca_iw_myjob_domain_Direccion_num_num_id</td>
+                    <td>someNum1</td>
+                </tr>
+                <tr>
+                    <td>verifyText</td>
+                    <td>_s_es_uca_iw_myjob_domain_Direccion_cp_cp_id</td>
+                    <td>someCp1</td>
+                </tr>
+                <tr>
+                    <td>verifyText</td>
+                    <td>_s_es_uca_iw_myjob_domain_Direccion_pais_pais_id</td>
+                    <td>somePais1</td>
+                </tr>
+            </tbody>
+    </table>
+</body>
+</html>

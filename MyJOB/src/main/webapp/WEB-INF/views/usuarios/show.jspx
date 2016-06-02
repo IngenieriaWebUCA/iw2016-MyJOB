@@ -9,6 +9,5 @@
         <field:display field="email" id="s_es_uca_iw_myjob_domain_Usuario_email" object="${usuario}" z="Km+KtFZncJ+Rh6qkJgTt/5Ly+f4="/>
         <field:display field="enabled" id="s_es_uca_iw_myjob_domain_Usuario_enabled" object="${usuario}" z="Uqqgk79Ua00HZzntXXEsaXcDsjg="/>
         <field:display field="rol" id="s_es_uca_iw_myjob_domain_Usuario_rol" object="${usuario}" z="iq6lCpNSO1lj7NFhNrmgWLDOSXU="/>
-        <field:display field="tipoUsuario" id="s_es_uca_iw_myjob_domain_Usuario_tipoUsuario" object="${usuario}" z="GKsaQkKT1sS8rxVyvBm18XGIpM8="/>
     </page:show>
 </div>

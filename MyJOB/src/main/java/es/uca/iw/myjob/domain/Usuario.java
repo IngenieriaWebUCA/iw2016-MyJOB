@@ -68,10 +68,4 @@ public class Usuario {
     @NotNull
     @Enumerated
     private Rol rol;
-
-    /**
-     */
-    @NotNull
-    @Enumerated
-    private TipoUsuario tipoUsuario;
 }

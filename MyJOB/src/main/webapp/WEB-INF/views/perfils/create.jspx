@@ -13,7 +13,7 @@
         <field:datetime dateTimePattern="${perfil_fecha_inicio_date_format}" field="fecha_inicio" id="c_es_uca_iw_myjob_domain_Perfil_fecha_inicio" past="true" required="true" z="FGR0ycIcpjG2LkydKovY4jxSEvI="/>
         <field:datetime dateTimePattern="${perfil_fecha_fin_date_format}" field="fecha_fin" id="c_es_uca_iw_myjob_domain_Perfil_fecha_fin" z="w6dvVqu3t8geS8VceQskDTZ7GRw="/>
         <field:input field="puesto_trabajo_desempenado" id="c_es_uca_iw_myjob_domain_Perfil_puesto_trabajo_desempenado" max="30" min="3" required="true" z="h0b/kNSZ7eZ9292LuY0zDJBFIHI="/>
-        <field:simple field="id_perfil" id="c_es_uca_iw_myjob_domain_Perfil_id_perfil" messageCode="entity_reference_not_managed" messageCodeAttribute="Demandante" z="IllYjAZhjhQGixoJf+xoF8wV0eY="/>
+        <field:simple field="id_perfil" id="c_es_uca_iw_myjob_domain_Perfil_id_perfil" messageCode="entity_reference_not_managed" messageCodeAttribute="Demandante" render="false" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_es_uca_iw_myjob_domain_Perfil" render="${not empty dependencies}" z="k5ey/KC2QH3SopzGkBfErmNw2ms="/>
 </div>

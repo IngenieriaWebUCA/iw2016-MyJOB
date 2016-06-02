@@ -195,3 +195,23 @@ finder add --class es.uca.iw.myjob.domain.OfertaTrabajo --finderName findOfertaT
 finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBysueldobrutoBetween
 finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBySueldoBrutoBetween
 finder add --class ~.domain.OfertaTrabajo --finderName findOfertaTrabajoesBySueldoBrutoLike
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-06-01 21:30:41
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-02 12:19:05
+test integration --entity ~.domain.Demandante
+test integration --entity ~.domain.Direccion
+test integration --entity ~.domain.Direccion
+test integration --entity ~.domain.Empresa
+test integration --entity ~.domain.OfertaTrabajo
+test integration --entity ~.domain.Perfil
+test integration --entity ~.domain.Usuario
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-06-02 12:21:03
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-02 12:21:17
+test integration --entity ~.domain.Direccion
+test integration --entity ~.domain.OfertaTrabajo
+selenium test --controller ~.web.DemandanteController
+selenium test --controller ~.web.DireccionController
+selenium test --controller ~.web.EmpresaController
+selenium test --controller ~.web.OfertaTrabajoController
+selenium test --controller ~.web.PerfilController
+selenium test --controller ~.web.UsuarioController
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-06-02 12:25:05

@@ -7,7 +7,6 @@ import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.Empresa;
 import es.uca.iw.myjob.domain.Usuario;
 import es.uca.iw.myjob.reference.Rol;
-import es.uca.iw.myjob.reference.TipoUsuario;
 import java.util.Date;
 import java.util.Set;
 
@@ -75,14 +74,6 @@ privileged aspect Usuario_Roo_JavaBean {
     
     public void Usuario.setRol(Rol rol) {
         this.rol = rol;
-    }
-    
-    public TipoUsuario Usuario.getTipoUsuario() {
-        return this.tipoUsuario;
-    }
-    
-    public void Usuario.setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
     }
     
 }

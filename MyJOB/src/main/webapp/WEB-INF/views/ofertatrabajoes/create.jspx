@@ -7,8 +7,8 @@
         <field:input field="formacion" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_formacion" max="30" min="3" required="true" z="ZH9QvujA7mePivG2cWERIuDsTSM="/>
         <field:input field="nombre" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_nombre" max="30" min="3" required="true" z="EvA8gfQschCIxYiBVl07vpsBSVA="/>
         <field:textarea field="descripcion" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_descripcion" z="BkcNirGDfexTf0TbvkmHmbW6sJA="/>
-        <field:simple field="id_oferta_empresa" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_empresa" messageCode="entity_reference_not_managed" messageCodeAttribute="Empresa" z="32M8Ymma7wvkViMzBarm6NQZ198="/>
-        <field:select field="id_oferta_demandante" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_demandante" itemValue="id" items="${demandantes}" multiple="true" path="/demandantes" z="dr+VzGXy4n1dcDLJvHTEX26ONdE="/>
+        <field:simple field="id_oferta_empresa" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_empresa" messageCode="entity_reference_not_managed" messageCodeAttribute="Empresa" render="false" z="user-managed"/>
+        <field:select field="id_oferta_demandante" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_id_oferta_demandante" itemValue="id" items="${demandantes}" multiple="true" path="/demandantes" render="false" z="user-managed"/>
         <field:input field="tipologia_contrato" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_tipologia_contrato" max="30" min="3" required="true" z="f5ndZt6AuVDgY3/p6bZCs9Gn97M="/>
         <field:input field="sueldo_bruto" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_sueldo_bruto" min="0" required="true" validationMessageCode="field_invalid_number" z="cxhSeubAzrMPFdurxdInUL397N4="/>
         <field:datetime dateTimePattern="${ofertaTrabajo_fecha_aprox_inic_date_format}" field="fecha_aprox_inic" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_fecha_aprox_inic" required="true" z="2htc+wQd1qd/7jRgmid5R6j8i7o="/>

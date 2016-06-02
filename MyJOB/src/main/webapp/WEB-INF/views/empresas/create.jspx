@@ -9,9 +9,9 @@
         <field:textarea field="actividad_profesional" id="c_es_uca_iw_myjob_domain_Empresa_actividad_profesional" z="ycrEGZjiGasO8254CyG5dd0Hxe8="/>
         <field:input field="n_empleados" id="c_es_uca_iw_myjob_domain_Empresa_n_empleados" min="0" required="true" validationMessageCode="field_invalid_number" z="ucYsTA4CveR/N8+0q2/qOm9PI0c="/>
         <field:input field="telefono" id="c_es_uca_iw_myjob_domain_Empresa_telefono" required="true" z="50fb8eI5dTKk+dJRmbCPlRSkcaw="/>
-        <field:select field="usuario" id="c_es_uca_iw_myjob_domain_Empresa_usuario" itemValue="id" items="${usuarios}" path="/usuarios" z="joRuez7zCGCxxhkk9vJCh7Td2Go="/>
-        <field:select field="direccion" id="c_es_uca_iw_myjob_domain_Empresa_direccion" itemValue="id" items="${direccions}" path="/direccions" z="8wPbleV084lo2xLIVgWxBHHQowA="/>
-        <field:select field="oferta" id="c_es_uca_iw_myjob_domain_Empresa_oferta" itemValue="id" items="${ofertatrabajoes}" path="/ofertatrabajoes" z="i1umnQiOCFROzY7UHPw8/4HvuKU="/>
+        <field:select field="usuario" id="c_es_uca_iw_myjob_domain_Empresa_usuario" itemValue="id" items="${usuarios}" path="/usuarios" render="false" z="user-managed"/>
+        <field:select field="direccion" id="c_es_uca_iw_myjob_domain_Empresa_direccion" itemValue="id" items="${direccions}" path="/direccions" render="false" z="user-managed"/>
+        <field:select field="oferta" id="c_es_uca_iw_myjob_domain_Empresa_oferta" itemValue="id" items="${ofertatrabajoes}" path="/ofertatrabajoes" render="false" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_es_uca_iw_myjob_domain_Empresa" render="${not empty dependencies}" z="yslhtVa8GT0/HzorLBb86743mtk="/>
 </div>

@@ -11,6 +11,5 @@
         <field:simple field="id_demandante" id="c_es_uca_iw_myjob_domain_Usuario_id_demandante" messageCode="entity_reference_not_managed" messageCodeAttribute="Demandante" z="8FvlG5MamZFdkddemvJtZF7/WRc="/>
         <field:input field="enabled" id="c_es_uca_iw_myjob_domain_Usuario_enabled" max="3" z="WwFBGXOmup29TkEMQ8Kw+i86tA4="/>
         <field:select field="rol" id="c_es_uca_iw_myjob_domain_Usuario_rol" items="${rols}" path="rols" required="true" z="5efuumZ12edCZHCyW0i23kSbO8g="/>
-        <field:select field="tipoUsuario" id="c_es_uca_iw_myjob_domain_Usuario_tipoUsuario" items="${tipousuarios}" path="tipousuarios" required="true" z="sDIMzLYDgbnndNv0epAp7+glfWg="/>
     </form:update>
 </div>

@@ -7,7 +7,6 @@ import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.Empresa;
 import es.uca.iw.myjob.domain.Usuario;
 import es.uca.iw.myjob.reference.Rol;
-import es.uca.iw.myjob.reference.TipoUsuario;
 import es.uca.iw.myjob.web.UsuarioController;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
@@ -103,7 +102,6 @@ privileged aspect UsuarioController_Roo_Controller {
         uiModel.addAttribute("demandantes", Demandante.findAllDemandantes());
         uiModel.addAttribute("empresas", Empresa.findAllEmpresas());
         uiModel.addAttribute("rols", Arrays.asList(Rol.values()));
-        uiModel.addAttribute("tipousuarios", Arrays.asList(TipoUsuario.values()));
     }
     
     String UsuarioController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

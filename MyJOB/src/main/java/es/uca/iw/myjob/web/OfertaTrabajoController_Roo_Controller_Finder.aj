@@ -28,6 +28,7 @@ privileged aspect OfertaTrabajoController_Roo_Controller_Finder {
         } else {
             uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findOfertaTrabajoesByFormacionLike(formacion, sortFieldName, sortOrder).getResultList());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "ofertatrabajoes/list";
     }
     
@@ -47,6 +48,7 @@ privileged aspect OfertaTrabajoController_Roo_Controller_Finder {
         } else {
             uiModel.addAttribute("ofertatrabajoes", OfertaTrabajo.findOfertaTrabajoesByNombreLike(nombre, sortFieldName, sortOrder).getResultList());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "ofertatrabajoes/list";
     }
     
