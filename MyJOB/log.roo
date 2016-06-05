@@ -232,3 +232,4 @@ finder add --finderName findUsuariosByusernameEquals --class ~.domain.Usuario
 finder add --finderName findusuariosByusernameequals --class ~.domain.Usuario
 finder add --finderName findusuariosByUserNameEquals --class ~.domain.Usuario
 // Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-06-05 01:04:49
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-05 18:55:38
