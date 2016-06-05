@@ -15,4 +15,9 @@ fi
 
 echo "Realizando el despliegue de la aplicación... "
 
+cd src/main/resources/META-INF/spring/
+sed -i 's/database.username=/database.username='"$user"'/' database.properties
+sed -i 's/database.password=/database.password='"$clave"'/' database.properties
+cd ../../../../..
+
 mvn tomcat7:run
