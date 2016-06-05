@@ -3,17 +3,11 @@
 
 package es.uca.iw.myjob.web;
 
-import es.uca.iw.myjob.domain.Demandante;
-import es.uca.iw.myjob.domain.Empresa;
 import es.uca.iw.myjob.domain.Usuario;
-import es.uca.iw.myjob.reference.Rol;
 import es.uca.iw.myjob.web.UsuarioController;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.joda.time.format.DateTimeFormat;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,17 +18,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 privileged aspect UsuarioController_Roo_Controller {
-    
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String UsuarioController.create(@Valid Usuario usuario, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, usuario);
-            return "usuarios/create";
-        }
-        uiModel.asMap().clear();
-        usuario.persist();
-        return "redirect:/usuarios/" + encodeUrlPathSegment(usuario.getId().toString(), httpServletRequest);
-    }
     
     @RequestMapping(params = "form", produces = "text/html")
     public String UsuarioController.createForm(Model uiModel) {
@@ -90,18 +73,6 @@ privileged aspect UsuarioController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/usuarios";
-    }
-    
-    void UsuarioController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("usuario_fecha_registro_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
-    }
-    
-    void UsuarioController.populateEditForm(Model uiModel, Usuario usuario) {
-        uiModel.addAttribute("usuario", usuario);
-        addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("demandantes", Demandante.findAllDemandantes());
-        uiModel.addAttribute("empresas", Empresa.findAllEmpresas());
-        uiModel.addAttribute("rols", Arrays.asList(Rol.values()));
     }
     
     String UsuarioController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

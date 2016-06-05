@@ -82,4 +82,9 @@
     <bean class="org.gvnix.web.datatables.util.impl.DatatablesUtilsBeanImpl" id="datatableUtilsBean"/>
     <bean class="org.gvnix.web.datatables.util.impl.QuerydslUtilsBeanImpl" id="querydslUtilsBean"/>
 <bean class="org.gvnix.util.fancytree.TreeUtils" id="treeUtilsBean"/>
+<bean class="org.gvnix.web.json.Jackson2RequestMappingHandlerAdapter" id="dataBinderRequestMappingHandlerAdapter" p:order="1">
+        <property name="objectMapper">
+            <bean class="org.gvnix.web.json.ConversionServiceObjectMapper"/>
+        </property>
+    </bean>
 </beans>

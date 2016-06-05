@@ -3,17 +3,20 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-        <menu:category id="c_usuario" z="user-managed">
-            <menu:item id="i_usuario_new" messageCode="registrar_usuario" url="/usuarios?form" z="user-managed"/>
-            <menu:item id="i_seguridad" messageCode="login" url="/login" z="user-managed"/>
-            <menu:item id="i_usuario_list" messageCode="global_menu_list" url="/usuarios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="P7ZIPrcTTBR41JYD0QldbYgsZrM="/>
-        </menu:category>
-        <sec:authorize ifAllGranted="3">
+        <sec:authorize access="isAnonymous()">
+            <menu:category id="c_usuario" z="user-managed">
+                <menu:item id="i_usuario_new" messageCode="registrar_usuario" url="/usuarios?form" z="user-managed"/>
+                <menu:item id="i_seguridad" messageCode="login" url="/login" z="user-managed"/>
+                <menu:item render="false" id="i_usuario_list" messageCode="global_menu_list" url="/usuarios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            </menu:category>
+        </sec:authorize>
+        <sec:authorize ifAllGranted="1">
             <menu:category id="c_empresa" z="Xy2UIEQBwGL74OghlgyDNqDXG44=">
                 <menu:item id="i_empresa_new" messageCode="registrar_empresa" url="/empresas?form" z="user-managed"/>
                 <menu:item id="i_ofertatrabajo_new" messageCode="publicar_oferta" url="/ofertatrabajoes?form" z="user-managed"/>
-                <!-- <menu:item id="i_empresa_list" messageCode="global_menu_list" url="/empresas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="/YQYlSdehDz3lrOGSSpWZYe++Zk="/>-->
+                <menu:item id="i_demandante_list" messageCode="global_menu_list" url="/demandantes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1MtvqFaAsZmIa4hZR8pApwIOdDY="/>
                 <menu:item id="i_empresa_list" messageCode="global_menu_list" url="/empresas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="/YQYlSdehDz3lrOGSSpWZYe++Zk="/>
+                <menu:item id="i_ofertatrabajo_list" messageCode="global_menu_list" url="/ofertatrabajoes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ebmX6VEhkNav416FyJEAqjg/pvc="/>
             </menu:category>
         </sec:authorize>
         <menu:category id="c_direccion" render="false" z="user-managed">
@@ -26,14 +29,21 @@
             <menu:item id="fi_ofertatrabajo_formacionlike" messageCode="global_menu_find" url="/ofertatrabajoes?find=ByFormacionLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="kBTCOFMeUd+Dgi0NwDXA3gc7Fb0="/>
             <menu:item id="fi_ofertatrabajo_nombrelike" messageCode="global_menu_find" url="/ofertatrabajoes?find=ByNombreLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="rx9wkrgAhkJzMceuNKYfQDSkx94="/>
         </menu:category>
-        <sec:authorize ifAllGranted="2">
+        <sec:authorize ifAllGranted="null">
+            <menu:category id="administrador" label="Administrador" z="user-managed">
+                <menu:item id="i_empresa_list" messageCode="global_menu_list" url="/empresas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="/YQYlSdehDz3lrOGSSpWZYe++Zk="/>
+                <menu:item id="i_demandante_list" messageCode="global_menu_list" url="/demandantes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1MtvqFaAsZmIa4hZR8pApwIOdDY="/>
+                <menu:item id="i_ofertatrabajo_list" messageCode="global_menu_list" url="/ofertatrabajoes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ebmX6VEhkNav416FyJEAqjg/pvc="/>
+            </menu:category>
+        </sec:authorize>
+        <sec:authorize ifAllGranted="0">
             <menu:category id="c_demandante" z="ap7hcwTTE7QpwHyV1OnSKrPHdQc=">
+                 <menu:item id="i_ofertatrabajo_list" messageCode="buscar_oferta" url="/ofertatrabajoes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ebmX6VEhkNav416FyJEAqjg/pvc="/>
                 <menu:item id="i_demandante_new" messageCode="registrar_demandante" url="/demandantes?form" z="user-managed"/>
                 <menu:item id="i_perfil_new" messageCode="introducir_perfil" url="/perfils?form" z="user-managed"/>
-                <!-- <menu:item id="i_demandante_list" messageCode="global_menu_list" url="/demandantes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1MtvqFaAsZmIa4hZR8pApwIOdDY="/>-->
-                <menu:item id="i_demandante_list" messageCode="global_menu_list" url="/demandantes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1MtvqFaAsZmIa4hZR8pApwIOdDY="/>
-                <menu:item id="fi_ofertatrabajo_formacionlike" messageCode="global_menu_find" url="/ofertatrabajoes?find=ByFormacionLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="kBTCOFMeUd+Dgi0NwDXA3gc7Fb0="/>
-                <menu:item id="fi_ofertatrabajo_nombrelike" messageCode="global_menu_find" url="/ofertatrabajoes?find=ByNombreLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="rx9wkrgAhkJzMceuNKYfQDSkx94="/>
+                <menu:item render = "false" id="i_demandante_list" messageCode="global_menu_list" url="/demandantes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1MtvqFaAsZmIa4hZR8pApwIOdDY="/>
+                <menu:item render="false" id="fi_ofertatrabajo_formacionlike" messageCode="global_menu_find" url="/ofertatrabajoes?find=ByFormacionLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="kBTCOFMeUd+Dgi0NwDXA3gc7Fb0="/>
+                <menu:item render="false" id="fi_ofertatrabajo_nombrelike" messageCode="global_menu_find" url="/ofertatrabajoes?find=ByNombreLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="rx9wkrgAhkJzMceuNKYfQDSkx94="/>
             </menu:category>
         </sec:authorize>
         <menu:category id="c_perfil" render="false" z="user-managed">
@@ -44,7 +54,7 @@
             <menu:item id="i_tipousuario_new" messageCode="global_menu_new" url="/tipousuarios?form" z="JvQnm3N9Mu7MeYKfm6N2oU9+Utg="/>
             <menu:item id="i_tipousuario_list" messageCode="global_menu_list" url="/tipousuarios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="yi3Zun2hSJRDfXiMK8ekHmbhOEQ="/>
         </menu:category>
-        <menu:category id="c_seleniumtests" z="PPLMd2yNB6/LSbjIWogAacRPU+Q=">
+        <menu:category id="c_seleniumtests" render="false" z="user-managed">
             <menu:item id="si_seleniumtests_test" messageCode="selenium_menu_test_suite" url="/resources/selenium/test-suite.xhtml" z="wwunW/IPDcunN97u41MvMJZQ2to="/>
         </menu:category>
     </menu:menu>

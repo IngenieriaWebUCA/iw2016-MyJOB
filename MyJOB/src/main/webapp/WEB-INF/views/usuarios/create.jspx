@@ -5,11 +5,11 @@
     <form:create id="fc_es_uca_iw_myjob_domain_Usuario" modelAttribute="usuario" path="/usuarios" render="${empty dependencies}" z="c/cn7dMtO0zv2AhcysA42kb2PrU=">
         <field:input field="username" id="c_es_uca_iw_myjob_domain_Usuario_username" max="30" min="3" required="true" z="u82C988e3VuGiJcXXTPYt32TIK4="/>
         <field:input field="password" id="c_es_uca_iw_myjob_domain_Usuario_password" max="30" min="9" required="true" type="password" z="user-managed"/>
-        <field:datetime dateTimePattern="${usuario_fecha_registro_date_format}" field="fecha_registro" id="c_es_uca_iw_myjob_domain_Usuario_fecha_registro" past="true" required="true" z="fo/lDIHtGPyHrV9zX3qszAWPQH0="/>
+        <field:datetime dateTimePattern="${usuario_fecha_registro_date_format}" field="fecha_registro" id="c_es_uca_iw_myjob_domain_Usuario_fecha_registro" past="true" render="false" required="true" z="user-managed"/>
         <field:input field="email" id="c_es_uca_iw_myjob_domain_Usuario_email" max="30" min="6" required="true" validationMessageCode="field_invalid_email" z="GN/ByM/wOm7CSqczpoXJxs6wQ+w="/>
         <field:simple field="id_usuario" id="c_es_uca_iw_myjob_domain_Usuario_id_usuario" messageCode="entity_reference_not_managed" messageCodeAttribute="Empresa" render="false" z="user-managed"/>
         <field:simple field="id_demandante" id="c_es_uca_iw_myjob_domain_Usuario_id_demandante" messageCode="entity_reference_not_managed" messageCodeAttribute="Demandante" render="false" z="user-managed"/>
-        <field:input field="enabled" id="c_es_uca_iw_myjob_domain_Usuario_enabled" max="3" type="hidden" value="1" z="user-managed"/>
+        <input field="enabled" id="c_es_uca_iw_myjob_domain_Usuario_enabled" max="3" type="hidden" z="user-managed"/>
         <field:select field="rol" id="c_es_uca_iw_myjob_domain_Usuario_rol" items="${rols}" path="rols" required="true" z="5efuumZ12edCZHCyW0i23kSbO8g="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_es_uca_iw_myjob_domain_Usuario" render="${not empty dependencies}" z="/E0SO3Eg5Vg3dJfLRZ3bzOQEiKk="/>

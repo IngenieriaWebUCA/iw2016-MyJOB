@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_es_uca_iw_myjob_domain_Usuario" modelAttribute="usuario" path="/usuarios" versionField="Version" z="9rwsabGMU9mJ5hQYg99zLJQ8ccE=">
         <field:input field="username" id="c_es_uca_iw_myjob_domain_Usuario_username" max="30" min="3" required="true" z="u82C988e3VuGiJcXXTPYt32TIK4="/>
-        <field:input field="password" id="c_es_uca_iw_myjob_domain_Usuario_password" max="30" min="9" required="true" z="35Rc+JGA38mM3BoSplQgiO9n4HM="/>
+        <field:input field="password" id="c_es_uca_iw_myjob_domain_Usuario_password" max="30" min="5" required="true" z="922sAAWu6nhPETqUiL5FZC7Upjs="/>
         <field:datetime dateTimePattern="${usuario_fecha_registro_date_format}" field="fecha_registro" id="c_es_uca_iw_myjob_domain_Usuario_fecha_registro" past="true" required="true" z="fo/lDIHtGPyHrV9zX3qszAWPQH0="/>
         <field:input field="email" id="c_es_uca_iw_myjob_domain_Usuario_email" max="30" min="6" required="true" validationMessageCode="field_invalid_email" z="GN/ByM/wOm7CSqczpoXJxs6wQ+w="/>
         <field:simple field="id_usuario" id="c_es_uca_iw_myjob_domain_Usuario_id_usuario" messageCode="entity_reference_not_managed" messageCodeAttribute="Empresa" z="d5OnYq9nxNUSiWX8DHNDq6q9+9Y="/>

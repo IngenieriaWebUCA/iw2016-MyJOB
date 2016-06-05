@@ -18,25 +18,34 @@ import com.github.dandelion.datatables.extras.export.itext.PdfExport;
 import com.github.dandelion.datatables.extras.export.poi.XlsExport;
 import com.github.dandelion.datatables.extras.export.poi.XlsxExport;
 import com.github.dandelion.datatables.extras.spring3.ajax.DatatablesParams;
-import es.uca.iw.myjob.domain.Usuario;
-import es.uca.iw.myjob.web.UsuarioController;
-import es.uca.iw.myjob.web.UsuarioController_Roo_Controller;
-import es.uca.iw.myjob.web.UsuarioController_Roo_GvNIXDatatables;
+import com.mysema.query.BooleanBuilder;
+import com.mysema.query.jpa.impl.JPAQuery;
+import com.mysema.query.types.path.PathBuilder;
+import es.uca.iw.myjob.domain.Demandante;
+import es.uca.iw.myjob.web.DemandanteController;
+import es.uca.iw.myjob.web.DemandanteController_Roo_GvNIXDatatables;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponseWrapper;
 import javax.validation.Valid;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.gvnix.web.datatables.query.SearchResults;
 import org.gvnix.web.datatables.util.DatatablesUtilsBean;
@@ -50,6 +59,7 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
+import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,29 +70,29 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-privileged aspect UsuarioController_Roo_GvNIXDatatables {
+privileged aspect DemandanteController_Roo_GvNIXDatatables {
     
-    declare precedence: UsuarioController_Roo_GvNIXDatatables, UsuarioController_Roo_Controller;
-    
-    @Autowired
-    public ConversionService UsuarioController.conversionService_dtt;
+    declare precedence: DemandanteController_Roo_GvNIXDatatables, DemandanteController_Roo_Controller;
     
     @Autowired
-    public MessageSource UsuarioController.messageSource_dtt;
-    
-    public BeanWrapper UsuarioController.beanWrapper_dtt;
+    public ConversionService DemandanteController.conversionService_dtt;
     
     @Autowired
-    private EntityManagerProvider UsuarioController.entityManagerProvider_dtt;
+    public MessageSource DemandanteController.messageSource_dtt;
+    
+    public BeanWrapper DemandanteController.beanWrapper_dtt;
     
     @Autowired
-    public DatatablesUtilsBean UsuarioController.datatablesUtilsBean_dtt;
+    private EntityManagerProvider DemandanteController.entityManagerProvider_dtt;
     
     @Autowired
-    public QuerydslUtilsBean UsuarioController.querydslUtilsBean_dtt;
+    public DatatablesUtilsBean DemandanteController.datatablesUtilsBean_dtt;
+    
+    @Autowired
+    public QuerydslUtilsBean DemandanteController.querydslUtilsBean_dtt;
     
     @RequestMapping(method = RequestMethod.GET, produces = "text/html")
-    public String UsuarioController.listDatatables(Model uiModel, HttpServletRequest request) {
+    public String DemandanteController.listDatatables(Model uiModel, HttpServletRequest request) {
         Map<String, String> params = populateParametersMap(request);
         // Get parentId information for details render
         String parentId = params.remove("_dt_parentId");
@@ -104,28 +114,21 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
         if (!params.isEmpty()) {
             uiModel.addAttribute("baseFilter", params);
         }
-        return "usuarios/list";
+        return "demandantes/list";
     }
     
     @ModelAttribute
-    public void UsuarioController.populateDatatablesConfig(Model uiModel) {
+    public void DemandanteController.populateDatatablesConfig(Model uiModel) {
         uiModel.addAttribute("datatablesHasBatchSupport", true);
         uiModel.addAttribute("datatablesUseAjax",true);
-        uiModel.addAttribute("datatablesInlineEditing",false);
-        uiModel.addAttribute("datatablesInlineCreating",false);
+        uiModel.addAttribute("datatablesInlineEditing",true);
+        uiModel.addAttribute("datatablesInlineCreating",true);
         uiModel.addAttribute("datatablesSecurityApplied",true);
         uiModel.addAttribute("datatablesStandardMode",true);
         uiModel.addAttribute("finderNameParam","ajax_find");
     }
     
-    @RequestMapping(produces = "text/html")
-    public String UsuarioController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
-        // overrides the standard Roo list method and
-        // delegates on datatables list method
-        return listDatatables(uiModel, null);
-    }
-    
-    public Map<String, String> UsuarioController.populateParametersMap(HttpServletRequest request) {
+    public Map<String, String> DemandanteController.populateParametersMap(HttpServletRequest request) {
         Map<String, Object> params;
         if (request == null) {
             params = Collections.emptyMap();
@@ -149,11 +152,11 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
         return allParams;
     }
     
-    public Map<String, Object> UsuarioController.getPropertyMap(Usuario Usuario, Enumeration<Map<String, String>> propertyNames) {
+    public Map<String, Object> DemandanteController.getPropertyMap(Demandante Demandante, Enumeration<Map<String, String>> propertyNames) {
         Map<String, Object> propertyValuesMap = new HashMap<String, Object>();
         
         // If no entity or properties given, return empty Map
-        if(Usuario == null || propertyNames == null) {
+        if(Demandante == null || propertyNames == null) {
             return propertyValuesMap;
         }
         
@@ -166,7 +169,7 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
         }
         
         // Iterate over given properties to get each property value
-        BeanWrapper entityBean = new BeanWrapperImpl(Usuario);
+        BeanWrapper entityBean = new BeanWrapperImpl(Demandante);
         for (String propertyName : properties) {
             if (entityBean.isReadableProperty(propertyName)) {
                 Object propertyValue = null;
@@ -182,9 +185,9 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
         return propertyValuesMap;
     }
     
-    public Map<String, Object> UsuarioController.getPropertyMap(Usuario Usuario, HttpServletRequest request) {
+    public Map<String, Object> DemandanteController.getPropertyMap(Demandante Demandante, HttpServletRequest request) {
         // URL parameters are used as base search filters
-        @SuppressWarnings("unchecked") Map<String, Object> propertyValuesMap = getPropertyMap(Usuario, request.getParameterNames());
+        @SuppressWarnings("unchecked") Map<String, Object> propertyValuesMap = getPropertyMap(Demandante, request.getParameterNames());
         // Add to the property map the parameters used as query operators
         Map<String, Object> params = new HashMap<String, Object>(populateParametersMap(request));
         Set<String> keySet = params.keySet();
@@ -196,17 +199,17 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
         return propertyValuesMap;
     }
     
-    public void UsuarioController.setDatatablesBaseFilter(Map<String, Object> propertyMap) {
+    public void DemandanteController.setDatatablesBaseFilter(Map<String, Object> propertyMap) {
         // Add here your baseFilters to propertyMap.
     }
     
     @ResponseBody
     @RequestMapping(headers = "Accept=application/json", params = "getColumnType")
-    public String UsuarioController.getColumnType(Model uiModel, HttpServletRequest request, @RequestParam(value = "_columnName_", required = false) String columnName) {
+    public String DemandanteController.getColumnType(Model uiModel, HttpServletRequest request, @RequestParam(value = "_columnName_", required = false) String columnName) {
         // Getting all declared fields
         boolean fieldExists = false;
         Field attr = null;
-        for(Field field : Usuario.class.getDeclaredFields()){
+        for(Field field : Demandante.class.getDeclaredFields()){
             if(field.getName().equals(columnName)){
                 attr = field;
                 fieldExists = true;
@@ -215,8 +218,8 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
         }
         // If current field not exists on entity, find on superclass
         if(!fieldExists){
-            if(Usuario.class.getSuperclass() != null){
-                for(Field field : Usuario.class.getSuperclass().getDeclaredFields()){
+            if(Demandante.class.getSuperclass() != null){
+                for(Field field : Demandante.class.getSuperclass().getDeclaredFields()){
                     if(field.getName().equals(columnName)){
                         attr = field;
                         fieldExists = true;
@@ -260,7 +263,7 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
     
     @ResponseBody
     @RequestMapping(headers = "Accept=application/json", params = "geti18nText")
-    public String UsuarioController.geti18nText(Model uiModel, HttpServletRequest request, @RequestParam(value = "_locale_", required = false) String locale) {
+    public String DemandanteController.geti18nText(Model uiModel, HttpServletRequest request, @RequestParam(value = "_locale_", required = false) String locale) {
         // Getting current locale
         Locale defaultLocale = new Locale(locale);
         // Building JSON response
@@ -348,20 +351,20 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
      * Show only the list view fragment for entity as detail datatables into a master datatables.
      */
     @RequestMapping(produces = "text/html", value = "/list")
-    public String UsuarioController.listDatatablesDetail(Model uiModel, HttpServletRequest request, @ModelAttribute Usuario usuario) {
+    public String DemandanteController.listDatatablesDetail(Model uiModel, HttpServletRequest request, @ModelAttribute Demandante demandante) {
         // Do common datatables operations: get entity list filtered by request parameters
         listDatatables(uiModel, request);
         // Show only the list fragment (without footer, header, menu, etc.) 
-        return "forward:/WEB-INF/views/usuarios/list.jspx";
+        return "forward:/WEB-INF/views/demandantes/list.jspx";
     }
     
     /**
      * Create an entity and redirect to given URL.
      */
     @RequestMapping(produces = "text/html", method = RequestMethod.POST, params = "datatablesRedirect")
-    public String UsuarioController.createDatatablesDetail(@RequestParam(value = "datatablesRedirect", required = true) String redirect, @Valid Usuario usuario, BindingResult bindingResult, Model uiModel, RedirectAttributes redirectModel, HttpServletRequest httpServletRequest) {
+    public String DemandanteController.createDatatablesDetail(@RequestParam(value = "datatablesRedirect", required = true) String redirect, @Valid Demandante demandante, BindingResult bindingResult, Model uiModel, RedirectAttributes redirectModel, HttpServletRequest httpServletRequest) {
         // Do common create operations (check errors, populate, persist, ...)
-        String view = create(usuario, bindingResult, uiModel, httpServletRequest);
+        String view = create(demandante, bindingResult, uiModel, httpServletRequest);
         // If binding errors or no redirect, return common create error view (remain in create form)
         if (bindingResult.hasErrors() || redirect == null || redirect.trim().isEmpty()) {
             return view;
@@ -372,7 +375,7 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
         }else{
             redirectModel.addFlashAttribute("dtt_table_id_hash", "");
         }
-        redirectModel.addFlashAttribute(DatatablesUtilsBean.ROWS_ON_TOP_IDS_PARAM, usuario.getId());
+        redirectModel.addFlashAttribute(DatatablesUtilsBean.ROWS_ON_TOP_IDS_PARAM, demandante.getId());
         // If create success, redirect to given URL: master datatables
         return "redirect:".concat(redirect);
     }
@@ -381,9 +384,9 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
      * Update an entity and redirect to given URL.
      */
     @RequestMapping(produces = "text/html", method = RequestMethod.PUT, params = "datatablesRedirect")
-    public String UsuarioController.updateDatatablesDetail(@RequestParam(value = "datatablesRedirect", required = true) String redirect, @Valid Usuario usuario, BindingResult bindingResult, Model uiModel, RedirectAttributes redirectModel, HttpServletRequest httpServletRequest) {
+    public String DemandanteController.updateDatatablesDetail(@RequestParam(value = "datatablesRedirect", required = true) String redirect, @Valid Demandante demandante, BindingResult bindingResult, Model uiModel, RedirectAttributes redirectModel, HttpServletRequest httpServletRequest) {
         // Do common update operations (check errors, populate, merge, ...)
-        String view = update(usuario, bindingResult, uiModel, httpServletRequest);
+        String view = update(demandante, bindingResult, uiModel, httpServletRequest);
         // If binding errors or no redirect, return common update error view (remain in update form)
         if (bindingResult.hasErrors() || redirect == null || redirect.trim().isEmpty()) {
             return view;
@@ -394,7 +397,7 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
         }else{
             redirectModel.addFlashAttribute("dtt_table_id_hash", "");
         }
-        redirectModel.addFlashAttribute(DatatablesUtilsBean.ROWS_ON_TOP_IDS_PARAM, usuario.getId());
+        redirectModel.addFlashAttribute(DatatablesUtilsBean.ROWS_ON_TOP_IDS_PARAM, demandante.getId());
         // If update success, redirect to given URL: master datatables
         return "redirect:".concat(redirect);
     }
@@ -403,7 +406,7 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
      * Delete an entity and redirect to given URL.
      */
     @RequestMapping(produces = "text/html", method = RequestMethod.DELETE, params = "datatablesRedirect", value = "/{id}")
-    public String UsuarioController.deleteDatatablesDetail(@RequestParam(value = "datatablesRedirect", required = true) String redirect, @PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String DemandanteController.deleteDatatablesDetail(@RequestParam(value = "datatablesRedirect", required = true) String redirect, @PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         // Do common delete operations (find, remove, add pagination attributes, ...)
         String view = delete(id, page, size, uiModel);
         // If no redirect, return common list view
@@ -416,11 +419,11 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
     
     @RequestMapping(headers = "Accept=application/json", value = "/datatables/ajax", produces = "application/json")
     @ResponseBody
-    public DatatablesResponse<Map<String, String>> UsuarioController.findAllUsuarios(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Usuario usuario, HttpServletRequest request) {
+    public DatatablesResponse<Map<String, String>> DemandanteController.findAllDemandantes(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Demandante demandante, HttpServletRequest request) {
         // URL parameters are used as base search filters
-        Map<String, Object> baseSearchValuesMap = getPropertyMap(usuario, request);
+        Map<String, Object> baseSearchValuesMap = getPropertyMap(demandante, request);
         setDatatablesBaseFilter(baseSearchValuesMap);
-        SearchResults<Usuario> searchResult = datatablesUtilsBean_dtt.findByCriteria(Usuario.class, criterias, baseSearchValuesMap);
+        SearchResults<Demandante> searchResult = datatablesUtilsBean_dtt.findByCriteria(Demandante.class, criterias, baseSearchValuesMap);
         
         // Get datatables required counts
         long totalRecords = searchResult.getTotalCount();
@@ -438,11 +441,11 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
     
     @RequestMapping(headers = "Accept=application/json", params = "checkFilters")
     @ResponseBody
-    public ResponseEntity<String> UsuarioController.checkFilterExpressions(WebRequest request, @RequestParam(value = "property", required = false) String property, @RequestParam(value = "expression", required = false) String expression) {
+    public ResponseEntity<String> DemandanteController.checkFilterExpressions(WebRequest request, @RequestParam(value = "property", required = false) String property, @RequestParam(value = "expression", required = false) String expression) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=utf-8");
         if(beanWrapper_dtt == null){
-            beanWrapper_dtt = new BeanWrapperImpl(Usuario.class);
+            beanWrapper_dtt = new BeanWrapperImpl(Demandante.class);
         }
         Class type = beanWrapper_dtt.getPropertyType(property);
         boolean response = datatablesUtilsBean_dtt.checkFilterExpressions(type,expression);
@@ -450,54 +453,180 @@ privileged aspect UsuarioController_Roo_GvNIXDatatables {
     }
     
     @RequestMapping(value = "/exportcsv", produces = "text/csv")
-    public void UsuarioController.exportCsv(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Usuario usuario, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
-        export(criterias, usuario, ExportType.CSV, new CsvExport(), request, response);
+    public void DemandanteController.exportCsv(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Demandante demandante, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
+        export(criterias, demandante, ExportType.CSV, new CsvExport(), request, response);
     }
     
     @RequestMapping(value = "/exportpdf", produces = "text/pdf")
-    public void UsuarioController.exportPdf(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Usuario usuario, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
-        export(criterias, usuario, ExportType.PDF, new PdfExport(), request, response);
+    public void DemandanteController.exportPdf(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Demandante demandante, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
+        export(criterias, demandante, ExportType.PDF, new PdfExport(), request, response);
     }
     
     @RequestMapping(value = "/exportxls", produces = "text/xls")
-    public void UsuarioController.exportXls(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Usuario usuario, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
-        export(criterias, usuario, ExportType.XLS, new XlsExport(), request, response);
+    public void DemandanteController.exportXls(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Demandante demandante, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
+        export(criterias, demandante, ExportType.XLS, new XlsExport(), request, response);
     }
     
     @RequestMapping(value = "/exportxlsx", produces = "text/xlsx")
-    public void UsuarioController.exportXlsx(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Usuario usuario, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
-        export(criterias, usuario, ExportType.XLSX, new XlsxExport(), request, response);
+    public void DemandanteController.exportXlsx(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Demandante demandante, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
+        export(criterias, demandante, ExportType.XLSX, new XlsxExport(), request, response);
     }
     
     @RequestMapping(value = "/exportxml", produces = "text/xml")
-    public void UsuarioController.exportXml(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Usuario usuario, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
-        export(criterias, usuario, ExportType.XML, new XmlExport(), request, response);
+    public void DemandanteController.exportXml(@DatatablesParams DatatablesCriterias criterias, @ModelAttribute Demandante demandante, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ExportException {
+        export(criterias, demandante, ExportType.XML, new XmlExport(), request, response);
     }
     
-    public void UsuarioController.export(DatatablesCriterias criterias, Usuario usuario, ExportType exportType, DatatablesExport datatablesExport, HttpServletRequest request, HttpServletResponse response) throws ExportException {
+    public void DemandanteController.export(DatatablesCriterias criterias, Demandante demandante, ExportType exportType, DatatablesExport datatablesExport, HttpServletRequest request, HttpServletResponse response) throws ExportException {
         // Does the export process as is explained in http://dandelion.github.io/datatables/tutorials/export/controller-based-exports.html
         // 1. Retrieve the data
-        List<Map<String, String>> data = retrieveData(criterias, usuario, request);
+        List<Map<String, String>> data = retrieveData(criterias, demandante, request);
         // 2. Build an instance of "ExportConf"
-        ExportConf exportConf = new ExportConf.Builder(exportType).header(true).exportClass(datatablesExport).autoSize(true).fileName(usuario.getClass().getSimpleName()).build();
+        ExportConf exportConf = new ExportConf.Builder(exportType).header(true).exportClass(datatablesExport).autoSize(true).fileName(demandante.getClass().getSimpleName()).build();
         // 3. Build an instance of "HtmlTable"
         HtmlTable table = datatablesUtilsBean_dtt.makeHtmlTable(data, criterias, exportConf, request);
         // 4. Render the generated export file
         ExportUtils.renderExport(table, exportConf, response);
     }
     
-    private List<Map<String, String>> UsuarioController.retrieveData(DatatablesCriterias criterias, Usuario Usuario, HttpServletRequest request) {
+    private List<Map<String, String>> DemandanteController.retrieveData(DatatablesCriterias criterias, Demandante Demandante, HttpServletRequest request) {
         // Cloned criteria in order to not paginate the results
         DatatablesCriterias noPaginationCriteria = new DatatablesCriterias(criterias.getSearch(), 0, null, criterias.getColumnDefs(), criterias.getSortingColumnDefs(), criterias.getInternalCounter());
         // Do the search to obtain the data
-        Map<String, Object> baseSearchValuesMap = getPropertyMap(Usuario, request);
+        Map<String, Object> baseSearchValuesMap = getPropertyMap(Demandante, request);
         setDatatablesBaseFilter(baseSearchValuesMap);
-        org.gvnix.web.datatables.query.SearchResults<es.uca.iw.myjob.domain.Usuario> searchResult = datatablesUtilsBean_dtt.findByCriteria(Usuario.class, noPaginationCriteria, baseSearchValuesMap);
+        org.gvnix.web.datatables.query.SearchResults<es.uca.iw.myjob.domain.Demandante> searchResult = datatablesUtilsBean_dtt.findByCriteria(Demandante.class, noPaginationCriteria, baseSearchValuesMap);
         org.springframework.ui.Model uiModel = new org.springframework.ui.ExtendedModelMap();
         addDateTimeFormatPatterns(uiModel);
         Map<String, Object> datePattern = uiModel.asMap();
         // Use ConversionService with the obtained data
         return datatablesUtilsBean_dtt.populateDataSet(searchResult.getResults(), "id", searchResult.getTotalCount(), searchResult.getResultsCount(), criterias.getColumnDefs(), datePattern).getRows();
+    }
+    
+    @RequestMapping(value = "/datatables/createform", produces = "application/json", headers = "Accept=application/json")
+    @ResponseBody
+    public List<Map<String, String>> DemandanteController.createJsonForm(HttpServletRequest request, HttpServletResponse response, Model uiModel) throws ServletException, IOException {
+        
+        // Prepare result
+        List<Map<String, String>> result = new ArrayList<Map<String, String>>();
+        String controllerPath = "demandantes";
+        String pageToUse = "create";
+        String renderUrl = String.format("/WEB-INF/views/%s/%s.jspx", controllerPath, pageToUse);
+        
+        Map<String, String> item = new HashMap<String, String>();
+        final StringWriter buffer = new StringWriter();
+        
+        // Call JSP to render update form
+        RequestDispatcher dispatcher = request.getRequestDispatcher(renderUrl);
+        
+        // spring from:input tag uses BindingResult to locate property editors
+        // for each bean property. So, we add a request attribute (required key
+        // id BindingResult.MODEL_KEY_PREFIX + object name) with a correctly
+        // initialized bindingResult.
+        Demandante Demandante = new Demandante();
+        BeanPropertyBindingResult bindingResult = new BeanPropertyBindingResult(Demandante, "Demandante");
+        bindingResult.initConversion(conversionService_dtt);
+        request.setAttribute(BindingResult.MODEL_KEY_PREFIX + "Demandante", bindingResult);
+        
+        populateItemForRender(request, Demandante, true);
+        
+        dispatcher.include(request, new HttpServletResponseWrapper(response) {
+            
+            private PrintWriter writer = new PrintWriter(buffer);
+            
+            @Override
+            public PrintWriter getWriter() throws IOException {
+                return writer;
+            }
+        });
+        String render = buffer.toString();
+        
+        // Put rendered content into first column
+        item.put("form", render);
+        result.add(item);
+        
+        return result;
+    }
+    
+    @RequestMapping(value = "/datatables/updateforms", produces = "application/json", headers = "Accept=application/json")
+    @ResponseBody
+    public List<Map<String, String>> DemandanteController.updateJsonForms(@RequestParam("id") Long[] ids, HttpServletRequest request, HttpServletResponse response, Model uiModel) throws ServletException, IOException {
+        if (ArrayUtils.isEmpty(ids)) {
+            return new ArrayList<Map<String, String>>();
+        }
+        
+        // Using PathBuilder, a cascading builder for Predicate expressions
+        PathBuilder entity = new PathBuilder(Demandante.class, "entity");
+        // URL parameters are used as base search filters
+        Set set = new HashSet();
+        set.addAll(Arrays.asList(ids));
+        BooleanBuilder filterBy = querydslUtilsBean_dtt.createPredicateByIn(entity, "id", set);
+        // Create a query with filter
+        JPAQuery query = new JPAQuery(entityManagerProvider_dtt.getEntityManager(Demandante.class));
+        query = query.from(entity);
+        // execute query
+        List<Demandante> demandantes = query.where(filterBy).list(entity);
+        List<Map<String, String>> udpateForms = renderUpdateForm(demandantes, request, response);
+        return udpateForms;
+    }
+    
+    public List<Map<String, String>> DemandanteController.renderUpdateForm(List<Demandante> demandantes, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Prepare result
+        List<Map<String, String>> result = new ArrayList<Map<String, String>>(demandantes.size());
+        String controllerPath = "demandantes";
+        String pageToUse = "update";
+        String renderUrl = String.format("/WEB-INF/views/%s/%s.jspx", controllerPath, pageToUse);
+        // For every element
+        for (Demandante Demandante : demandantes) {
+            Map<String, String> item = new HashMap<String, String>();
+            final StringWriter buffer = new StringWriter();
+            // Call JSP to render update form
+            RequestDispatcher dispatcher = request.getRequestDispatcher(renderUrl);
+            populateItemForRender(request, Demandante, true);
+            dispatcher.include(request, new HttpServletResponseWrapper(response) {
+                
+                private PrintWriter writer = new PrintWriter(buffer);
+                
+                @Override
+                public PrintWriter getWriter() throws IOException {
+                    return writer;
+                }
+            });
+            String render = buffer.toString();
+            // Load item id
+            item.put("DT_RowId", conversionService_dtt.convert(Demandante.getId(), String.class));
+            // Put rendered content into first column
+            item.put("form", render);
+            result.add(item);
+        }
+        return result;
+    }
+    
+    public void DemandanteController.populateItemForRender(HttpServletRequest request, Demandante demandante, boolean editing) {
+        org.springframework.ui.Model uiModel = new org.springframework.ui.ExtendedModelMap();
+        
+        request.setAttribute("demandante", demandante);
+        request.setAttribute("itemId", conversionService_dtt.convert(demandante.getId(),String.class));
+        
+        if (editing) {
+            // spring from:input tag uses BindingResult to locate property editors for each bean
+            // property. So, we add a request attribute (required key id BindingResult.MODEL_KEY_PREFIX + object name)
+            // with a correctly initialized bindingResult.
+            BeanPropertyBindingResult bindindResult = new BeanPropertyBindingResult(demandante, "demandante");
+            bindindResult.initConversion(conversionService_dtt);
+            request.setAttribute(BindingResult.MODEL_KEY_PREFIX + "demandante",bindindResult);
+            // Add date time patterns and enums to populate inputs
+            populateEditForm(uiModel, demandante);
+        } else {
+            // Add date time patterns
+            addDateTimeFormatPatterns(uiModel);
+        }
+        
+        // Load uiModel attributes into request
+        Map<String, Object> modelMap = uiModel.asMap();
+        for (String key : modelMap.keySet()){
+            request.setAttribute(key, modelMap.get(key));
+        }
     }
     
 }
