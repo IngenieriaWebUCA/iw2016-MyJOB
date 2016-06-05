@@ -1,37 +1,42 @@
-<h1>MyJOB</h1>
+<h1>My JOB</h1>
 
-Proyecto de la asignatura Ingeniería Web, Grado en ingeniería informática de la Universidad de Cádiz. 
-Este proyecto es una pagina web donde demandantes y empresarios pueden buscar y ofertar puestos de trabajo. 
+Proyecto para la asignatura Ingeniería Web del "Grado en ingeniería informática" de la Universidad de Cádiz. 
+Se trata de una pagina web de ofertas de trabajo, en la que podremos ofertar o demandar empleo.
 
-<h2>Integrantes</h2>
-<lu>
+<h2>Componentes del grupo</h2>
+
+<ul>
 <li>José Castilla Benítez
 <li>Manuel Lazarich García
 <li>Manuel Jesús Moreno González
-</lu>
+</ul>
 
 <h2>Despliegue de la aplicación</h2>
 
-Antes de poner en marcha la pagina web deberemos tener unos requisitos previos:
-<lu>
-<li>Mysql
+Antes de poder desplegar nuestra aplicacion, deberemos cumplir los siguientes requisitos: 
+
+<ul>
+<li>Mysql: la versión más actual posible
 <li>Maven v.3
 <li>Tomcat v.7
 <li>Java v.7
-</lu>
+</ul>
 
-Una vez cumplidos los requisitos previos, podremos desplegar nuestra aplicacion de la siguiente manera:
+Una vez cumplidos los requisitos, podremos realizar el despliegue de la siguiente manera:
 
 Desde un terminal de linux, ejecutamos:
 
-    git clone https://github.com/IngenieriaWebUCA/iw2016-MyJOB
+      git clone https://github.com/IngenieriaWebUCA/iw2016-MyJOB
 
 Una vez descargado el proyecto tendremos que realizar los siguientes pasos:
 
-    cd iw2016-MyJOB/MyJOB
-    bash ./instalacion.sh
+      cd iw2016-MyJOB/MyJOB
+      bash ./instalacion.sh
 
-Después de todo el proceso podremos visualizar nuestra aplicación en:
+Una vez desplegada la aplicacion, podremos acceder a ella a traves del siguiente enlace
 
-    http://localhost:8080/MY_JOB/
+      http://localhost:8080/MY_JOB/
+
+
+
 
