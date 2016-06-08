@@ -12,6 +12,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import es.uca.iw.myjob.reference.EstadoOferta;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @RooJavaBean
 @RooToString
@@ -59,7 +64,6 @@ public class Demandante {
     @NotNull
     private String telefono;
 
-
     /**
      */
     @Enumerated
@@ -68,15 +72,15 @@ public class Demandante {
     /**
      */
     @ManyToOne
-    private OfertaTrabajo ofertademandante;
-
-    /**
-     */
-    @ManyToOne
     private Perfil perfil;
 
     /**
      */
-    @ManyToOne
+    @OneToOne
     private Usuario usuariod;
+
+    /**
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "inscripcion")
+    private Set<Inscripcion> id_inscripcion = new HashSet<Inscripcion>();
 }

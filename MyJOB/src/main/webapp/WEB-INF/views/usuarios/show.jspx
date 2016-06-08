@@ -7,7 +7,7 @@
         <field:display field="password" id="s_es_uca_iw_myjob_domain_Usuario_password" object="${usuario}" z="AGGlR4a+9lHNQ2O6m8VmLoG4C1g="/>
         <field:display date="true" dateTimePattern="${usuario_fecha_registro_date_format}" field="fecha_registro" id="s_es_uca_iw_myjob_domain_Usuario_fecha_registro" object="${usuario}" z="0GdpyR+Kj15BgebhKYqqdTvhwp4="/>
         <field:display field="email" id="s_es_uca_iw_myjob_domain_Usuario_email" object="${usuario}" z="Km+KtFZncJ+Rh6qkJgTt/5Ly+f4="/>
-        <field:display field="enabled" id="s_es_uca_iw_myjob_domain_Usuario_enabled" object="${usuario}" z="Uqqgk79Ua00HZzntXXEsaXcDsjg="/>
+        <field:display render="false" field="enabled" id="s_es_uca_iw_myjob_domain_Usuario_enabled" object="${usuario}" z="Uqqgk79Ua00HZzntXXEsaXcDsjg="/>
         <field:display field="rol" id="s_es_uca_iw_myjob_domain_Usuario_rol" object="${usuario}" z="iq6lCpNSO1lj7NFhNrmgWLDOSXU="/>
     </page:show>
 </div>

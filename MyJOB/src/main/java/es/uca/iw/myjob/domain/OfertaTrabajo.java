@@ -85,6 +85,6 @@ public class OfertaTrabajo {
 
     /**
      */
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "ofertademandante")
-    private Set<Demandante> id_oferta_demandante = new HashSet<Demandante>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "oferta")
+    private Set<Inscripcion> inscripciones = new HashSet<Inscripcion>(0);
 }

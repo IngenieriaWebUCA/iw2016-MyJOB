@@ -3,8 +3,8 @@
 
 package es.uca.iw.myjob.domain;
 
-import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.Empresa;
+import es.uca.iw.myjob.domain.Inscripcion;
 import es.uca.iw.myjob.domain.OfertaTrabajo;
 import es.uca.iw.myjob.reference.EstadoEmpleo;
 import java.util.Date;
@@ -100,12 +100,12 @@ privileged aspect OfertaTrabajo_Roo_JavaBean {
         this.id_oferta_empresa = id_oferta_empresa;
     }
     
-    public Set<Demandante> OfertaTrabajo.getId_oferta_demandante() {
-        return this.id_oferta_demandante;
+    public Set<Inscripcion> OfertaTrabajo.getInscripciones() {
+        return this.inscripciones;
     }
     
-    public void OfertaTrabajo.setId_oferta_demandante(Set<Demandante> id_oferta_demandante) {
-        this.id_oferta_demandante = id_oferta_demandante;
+    public void OfertaTrabajo.setInscripciones(Set<Inscripcion> inscripciones) {
+        this.inscripciones = inscripciones;
     }
     
 }

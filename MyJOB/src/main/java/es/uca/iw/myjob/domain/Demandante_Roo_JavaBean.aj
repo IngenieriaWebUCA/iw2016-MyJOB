@@ -4,11 +4,13 @@
 package es.uca.iw.myjob.domain;
 
 import es.uca.iw.myjob.domain.Demandante;
+import es.uca.iw.myjob.domain.Inscripcion;
 import es.uca.iw.myjob.domain.OfertaTrabajo;
 import es.uca.iw.myjob.domain.Perfil;
 import es.uca.iw.myjob.domain.Usuario;
 import es.uca.iw.myjob.reference.EstadoOferta;
 import java.util.Date;
+import java.util.Set;
 
 privileged aspect Demandante_Roo_JavaBean {
     
@@ -76,14 +78,6 @@ privileged aspect Demandante_Roo_JavaBean {
         this.estado = estado;
     }
     
-    public OfertaTrabajo Demandante.getOfertademandante() {
-        return this.ofertademandante;
-    }
-    
-    public void Demandante.setOfertademandante(OfertaTrabajo ofertademandante) {
-        this.ofertademandante = ofertademandante;
-    }
-    
     public Perfil Demandante.getPerfil() {
         return this.perfil;
     }
@@ -98,6 +92,14 @@ privileged aspect Demandante_Roo_JavaBean {
     
     public void Demandante.setUsuariod(Usuario usuariod) {
         this.usuariod = usuariod;
+    }
+    
+    public Set<Inscripcion> Demandante.getId_inscripcion() {
+        return this.id_inscripcion;
+    }
+    
+    public void Demandante.setId_inscripcion(Set<Inscripcion> id_inscripcion) {
+        this.id_inscripcion = id_inscripcion;
     }
     
 }

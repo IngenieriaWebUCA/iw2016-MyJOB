@@ -118,12 +118,12 @@ privileged aspect EmpresaController_Roo_GvNIXDatatables {
         uiModel.addAttribute("finderNameParam","ajax_find");
     }
     
-    @RequestMapping(produces = "text/html")
+    /*@RequestMapping(produces = "text/html")
     public String EmpresaController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, @RequestParam(value = "sortFieldName", required = false) String sortFieldName, @RequestParam(value = "sortOrder", required = false) String sortOrder, Model uiModel) {
         // overrides the standard Roo list method and
         // delegates on datatables list method
         return listDatatables(uiModel, null);
-    }
+    }*/
     
     public Map<String, String> EmpresaController.populateParametersMap(HttpServletRequest request) {
         Map<String, Object> params;

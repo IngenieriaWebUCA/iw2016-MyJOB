@@ -15,6 +15,7 @@
         <field:input field="num_vacantes" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_num_vacantes" required="true" z="/vj+7xsqwIMH6KZd/rg1ET5mkH4="/>
         <field:input field="experiencia_previa" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_experiencia_previa" required="true" z="6UtDaN+6AP3++fua9AjdyCKwVOs="/>
         <field:select field="estado_empleo" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_estado_empleo" items="${estadoempleos}" path="estadoempleos" z="JOX9PReii3uVJQ1IMtXlOd75blQ="/>
+        <field:simple field="inscripciones" id="c_es_uca_iw_myjob_domain_OfertaTrabajo_inscripciones" messageCode="entity_reference_not_managed" messageCodeAttribute="Inscripcion" z="3CGM3btArVg2d7AXq2fTs8Kd3cU="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_es_uca_iw_myjob_domain_OfertaTrabajo" render="${not empty dependencies}" z="m89fru6SIVGDWQBjTDqV6HEKZ9c="/>
 </div>

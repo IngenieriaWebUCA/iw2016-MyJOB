@@ -3,97 +3,97 @@
 
 package es.uca.iw.myjob.domain;
 
-import es.uca.iw.myjob.domain.Demandante;
+import es.uca.iw.myjob.domain.Inscripcion;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
-privileged aspect Demandante_Roo_Jpa_ActiveRecord {
+privileged aspect Inscripcion_Roo_Jpa_ActiveRecord {
     
     @PersistenceContext
-    transient EntityManager Demandante.entityManager;
+    transient EntityManager Inscripcion.entityManager;
     
-    public static final List<String> Demandante.fieldNames4OrderClauseFilter = java.util.Arrays.asList("dni", "nombre", "fecha_nacimiento", "sexo", "dir_actual", "email", "telefono", "estado", "ofertademandante", "perfil", "usuariod", "id_inscripcion");
+    public static final List<String> Inscripcion.fieldNames4OrderClauseFilter = java.util.Arrays.asList("estado", "inscripcion", "oferta");
     
-    public static final EntityManager Demandante.entityManager() {
-        EntityManager em = new Demandante().entityManager;
+    public static final EntityManager Inscripcion.entityManager() {
+        EntityManager em = new Inscripcion().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long Demandante.countDemandantes() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM Demandante o", Long.class).getSingleResult();
+    public static long Inscripcion.countInscripcions() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM Inscripcion o", Long.class).getSingleResult();
     }
     
-    public static List<Demandante> Demandante.findAllDemandantes() {
-        return entityManager().createQuery("SELECT o FROM Demandante o", Demandante.class).getResultList();
+    public static List<Inscripcion> Inscripcion.findAllInscripcions() {
+        return entityManager().createQuery("SELECT o FROM Inscripcion o", Inscripcion.class).getResultList();
     }
     
-    public static List<Demandante> Demandante.findAllDemandantes(String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Demandante o";
+    public static List<Inscripcion> Inscripcion.findAllInscripcions(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Inscripcion o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
             if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
                 jpaQuery = jpaQuery + " " + sortOrder;
             }
         }
-        return entityManager().createQuery(jpaQuery, Demandante.class).getResultList();
+        return entityManager().createQuery(jpaQuery, Inscripcion.class).getResultList();
     }
     
-    public static Demandante Demandante.findDemandante(Long id) {
+    public static Inscripcion Inscripcion.findInscripcion(Long id) {
         if (id == null) return null;
-        return entityManager().find(Demandante.class, id);
+        return entityManager().find(Inscripcion.class, id);
     }
     
-    public static List<Demandante> Demandante.findDemandanteEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Demandante o", Demandante.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<Inscripcion> Inscripcion.findInscripcionEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM Inscripcion o", Inscripcion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
-    public static List<Demandante> Demandante.findDemandanteEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM Demandante o";
+    public static List<Inscripcion> Inscripcion.findInscripcionEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM Inscripcion o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
             if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
                 jpaQuery = jpaQuery + " " + sortOrder;
             }
         }
-        return entityManager().createQuery(jpaQuery, Demandante.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+        return entityManager().createQuery(jpaQuery, Inscripcion.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
-    public void Demandante.persist() {
+    public void Inscripcion.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void Demandante.remove() {
+    public void Inscripcion.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Demandante attached = Demandante.findDemandante(this.id);
+            Inscripcion attached = Inscripcion.findInscripcion(this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void Demandante.flush() {
+    public void Inscripcion.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public void Demandante.clear() {
+    public void Inscripcion.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
     
     @Transactional
-    public Demandante Demandante.merge() {
+    public Inscripcion Inscripcion.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        Demandante merged = this.entityManager.merge(this);
+        Inscripcion merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }

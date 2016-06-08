@@ -233,3 +233,30 @@ finder add --finderName findusuariosByusernameequals --class ~.domain.Usuario
 finder add --finderName findusuariosByUserNameEquals --class ~.domain.Usuario
 // Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-06-05 01:04:49
 // Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-05 18:55:38
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-06 13:39:31
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-06-06 18:51:26
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-07 16:25:06
+// [failed] focus --class ~.domain.Empresa
+// [failed] focus --class es.uca.iw.myjob.domain.Empresa
+// [failed] focus --class ~.domain.Demandante
+entity jpa --class es.uca.iw.myjob.domain.Inscripciones --testAutomatically
+// [failed] focus --class ~.domain.Demandante
+focus --class ~.domain.Inscripciones
+// [failed] web mvc all --package ~.web
+// [failed] web mvc all --package ~.web
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-06-07 17:45:21
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-08 17:39:58
+// [failed] focus --class ~.domain.Demandante
+entity jpa --class es.uca.iw.myjob.domain.Inscripcion --testAutomatically
+field enum --fieldName estado --type es.uca.iw.myjob.reference.EstadoOferta
+// [failed] field reference --fieldName oferta --type ~.domain.Demandante
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log opened at 2016-06-08 17:44:47
+focus --class ~.domain.Inscripcion
+field reference --fieldName inscripcion --type ~.domain.Demandante
+field reference --fieldName oferta --type ~.domain.OfertaTrabajo
+// [failed] field set --class  es.uca.iw.myjob.domain.Incripcion --fieldName id_inscripcion --type  es.uca.iw.myjob.domain.Demandante --mappedBy inscripcion --notNull false --cardinality ONE_TO_MANY
+field set --class  es.uca.iw.myjob.domain.Inscripcion --fieldName id_inscripcion --type  es.uca.iw.myjob.domain.Demandante --mappedBy inscripcion --notNull false --cardinality ONE_TO_MANY
+field set --class  es.uca.iw.myjob.domain.Demandante --fieldName id_inscripcion --type  es.uca.iw.myjob.domain.Inscripcion --mappedBy inscripcion --notNull false --cardinality ONE_TO_MANY
+web mvc all --package ~.web
+exit
+// Spring Roo 1.3.2.RELEASE [rev d18aef8] log closed at 2016-06-08 18:40:33

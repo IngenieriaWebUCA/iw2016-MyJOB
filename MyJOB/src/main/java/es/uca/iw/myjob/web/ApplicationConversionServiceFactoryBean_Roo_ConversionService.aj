@@ -6,6 +6,7 @@ package es.uca.iw.myjob.web;
 import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.Direccion;
 import es.uca.iw.myjob.domain.Empresa;
+import es.uca.iw.myjob.domain.Inscripcion;
 import es.uca.iw.myjob.domain.OfertaTrabajo;
 import es.uca.iw.myjob.domain.Perfil;
 import es.uca.iw.myjob.domain.Usuario;
@@ -86,6 +87,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, es.uca.iw.myjob.domain.Empresa>() {
             public es.uca.iw.myjob.domain.Empresa convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Empresa.class);
+            }
+        };
+    }
+    
+    public Converter<Inscripcion, String> ApplicationConversionServiceFactoryBean.getInscripcionToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<es.uca.iw.myjob.domain.Inscripcion, java.lang.String>() {
+            public String convert(Inscripcion inscripcion) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, Inscripcion> ApplicationConversionServiceFactoryBean.getIdToInscripcionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, es.uca.iw.myjob.domain.Inscripcion>() {
+            public es.uca.iw.myjob.domain.Inscripcion convert(java.lang.Long id) {
+                return Inscripcion.findInscripcion(id);
+            }
+        };
+    }
+    
+    public Converter<String, Inscripcion> ApplicationConversionServiceFactoryBean.getStringToInscripcionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, es.uca.iw.myjob.domain.Inscripcion>() {
+            public es.uca.iw.myjob.domain.Inscripcion convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Inscripcion.class);
             }
         };
     }
@@ -172,6 +197,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getEmpresaToStringConverter());
         registry.addConverter(getIdToEmpresaConverter());
         registry.addConverter(getStringToEmpresaConverter());
+        registry.addConverter(getInscripcionToStringConverter());
+        registry.addConverter(getIdToInscripcionConverter());
+        registry.addConverter(getStringToInscripcionConverter());
         registry.addConverter(getOfertaTrabajoToStringConverter());
         registry.addConverter(getIdToOfertaTrabajoConverter());
         registry.addConverter(getStringToOfertaTrabajoConverter());

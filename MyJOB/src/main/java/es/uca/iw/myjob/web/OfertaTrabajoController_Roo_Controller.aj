@@ -3,8 +3,8 @@
 
 package es.uca.iw.myjob.web;
 
-import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.Empresa;
+import es.uca.iw.myjob.domain.Inscripcion;
 import es.uca.iw.myjob.domain.OfertaTrabajo;
 import es.uca.iw.myjob.reference.EstadoEmpleo;
 import es.uca.iw.myjob.web.OfertaTrabajoController;
@@ -99,8 +99,8 @@ privileged aspect OfertaTrabajoController_Roo_Controller {
     void OfertaTrabajoController.populateEditForm(Model uiModel, OfertaTrabajo ofertaTrabajo) {
         uiModel.addAttribute("ofertaTrabajo", ofertaTrabajo);
         addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("demandantes", Demandante.findAllDemandantes());
         uiModel.addAttribute("empresas", Empresa.findAllEmpresas());
+        uiModel.addAttribute("inscripcions", Inscripcion.findAllInscripcions());
         uiModel.addAttribute("estadoempleos", Arrays.asList(EstadoEmpleo.values()));
     }
     

@@ -22,7 +22,7 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect EmpresaController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
+    /*@RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String EmpresaController.create(@Valid Empresa empresa, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             populateEditForm(uiModel, empresa);
@@ -103,6 +103,6 @@ privileged aspect EmpresaController_Roo_Controller {
             pathSegment = UriUtils.encodePathSegment(pathSegment, enc);
         } catch (UnsupportedEncodingException uee) {}
         return pathSegment;
-    }
+    }*/
     
 }

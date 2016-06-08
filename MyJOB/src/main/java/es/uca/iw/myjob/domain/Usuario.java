@@ -76,11 +76,12 @@ public class Usuario {
     @Enumerated
     private Rol rol;
     
-    public static TypedQuery<Usuario> findUsuariosByUserNameEquals(String username) {
-    	 if (username == null || username.length() == 0) throw new IllegalArgumentException("The userName argument is required");
-         EntityManager em = Usuario.entityManager();
-         TypedQuery<Usuario> q = em.createQuery("SELECT o FROM usuario AS o WHERE o.username = :username", Usuario.class);
-         q.setParameter("username", username);
-         return q;
+    public static Usuario buscarUsuarioNombre(String username) {
+        if (username == null || username.length() == 0) throw new IllegalArgumentException("The username argument is required");
+        EntityManager em = Usuario.entityManager();
+        TypedQuery<Usuario> q = em.createQuery("SELECT o FROM Usuario AS o WHERE o.username = :username", Usuario.class);
+        q.setParameter("username", username);
+        Usuario usuario = q.getSingleResult();
+        return usuario;
     }
 }

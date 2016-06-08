@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_es_uca_iw_myjob_domain_Inscripcion" modelAttribute="inscripcion" path="/inscripcions" versionField="Version" z="4k8yVL0v0R97MlOxI/7g1tu2gOw=">
+        <field:select field="estado" id="c_es_uca_iw_myjob_domain_Inscripcion_estado" items="${estadoofertas}" path="estadoofertas" z="lKjeNraNjYMgwA3AUa7ZzNEgCtA="/>
+        <field:select field="inscripcion" id="c_es_uca_iw_myjob_domain_Inscripcion_inscripcion" itemValue="id" items="${demandantes}" path="/demandantes" z="iutU5FvlL5cVVpHwkVdvzREEqcA="/>
+        <field:select field="oferta" id="c_es_uca_iw_myjob_domain_Inscripcion_oferta" itemValue="id" items="${ofertatrabajoes}" path="/ofertatrabajoes" z="aCIIZEwxM+dEhvRF8KQlue0SqoU="/>
+    </form:update>
+</div>

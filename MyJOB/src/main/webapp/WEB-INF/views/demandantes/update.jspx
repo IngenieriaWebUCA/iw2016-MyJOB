@@ -14,5 +14,6 @@
         <field:select field="ofertademandante" id="c_es_uca_iw_myjob_domain_Demandante_ofertademandante" itemValue="id" items="${ofertatrabajoes}" path="/ofertatrabajoes" z="XvhmbC6AH2sEcW+EJNeTK1a9Fzk="/>
         <field:select field="perfil" id="c_es_uca_iw_myjob_domain_Demandante_perfil" itemValue="id" items="${perfils}" path="/perfils" z="cFP+kBTSaMFCeKcVMhmIBtD4pYs="/>
         <field:select field="usuariod" id="c_es_uca_iw_myjob_domain_Demandante_usuariod" itemValue="id" items="${usuarios}" path="/usuarios" z="ZWH4TPKvRWYSkQpWD8P/NvqVwSw="/>
+        <field:simple field="id_inscripcion" id="c_es_uca_iw_myjob_domain_Demandante_id_inscripcion" messageCode="entity_reference_not_managed" messageCodeAttribute="Inscripcion" z="QpO2Zv+FtRehGh9CEbFmUvi5Nv4="/>
     </form:update>
 </div>
