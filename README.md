@@ -38,7 +38,9 @@ Una vez desplegada la aplicacion, podremos acceder a ella a traves del siguiente
       http://localhost:8080/MY_JOB/
 
 Para entrar como administrador:
+
       Usuario: admin
+      
       Password: admin
 
 
