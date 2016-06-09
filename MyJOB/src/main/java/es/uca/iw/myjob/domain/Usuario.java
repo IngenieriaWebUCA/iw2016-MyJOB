@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,6 +18,7 @@ import javax.persistence.TypedQuery;
 import javax.validation.constraints.Past;
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.EntityManager;
@@ -75,6 +78,13 @@ public class Usuario {
     @NotNull
     @Enumerated
     private Rol rol;
+    
+    public static Collection<Usuario> findUsuario2(Long id) {
+        List<Usuario> usr = new ArrayList<Usuario>();
+        Usuario usuario = Usuario.findUsuario(id);
+        usr.add(usuario);
+        return usr;
+    }
     
     public static Usuario buscarUsuarioNombre(String username) {
         if (username == null || username.length() == 0) throw new IllegalArgumentException("The username argument is required");

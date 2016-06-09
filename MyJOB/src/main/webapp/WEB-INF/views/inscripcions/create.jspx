@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-          <h1>Inscripcion aÃ±adida correctamente.</h1><br/>
+    <h1>Inscripcion añadida correctamente.</h1>
+    <br/>
+    <form:create id="fc_es_uca_iw_myjob_domain_Inscripcion" modelAttribute="inscripcion" path="/inscripcions" render="${empty dependencies}" z="64LYt6BULJsnz/FOJJzTrSfvXjs=">
+        <field:select field="estado" id="c_es_uca_iw_myjob_domain_Inscripcion_estado" items="${estadoofertas}" path="estadoofertas" z="lKjeNraNjYMgwA3AUa7ZzNEgCtA="/>
+        <field:select field="inscripcion" id="c_es_uca_iw_myjob_domain_Inscripcion_inscripcion" itemValue="id" items="${demandantes}" path="/demandantes" z="iutU5FvlL5cVVpHwkVdvzREEqcA="/>
+        <field:select field="oferta" id="c_es_uca_iw_myjob_domain_Inscripcion_oferta" itemValue="id" items="${ofertatrabajoes}" path="/ofertatrabajoes" z="aCIIZEwxM+dEhvRF8KQlue0SqoU="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_es_uca_iw_myjob_domain_Inscripcion" render="${not empty dependencies}" z="loj/iHO24AVO/sCoindNOD/KrCY="/>
 </div>

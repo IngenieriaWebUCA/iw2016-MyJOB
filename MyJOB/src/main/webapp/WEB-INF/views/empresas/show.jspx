@@ -9,8 +9,8 @@
         <field:display field="actividad_profesional" id="s_es_uca_iw_myjob_domain_Empresa_actividad_profesional" object="${empresa}" z="FHUcOdpsvFU9nhxp/BXf+8Qm6dQ="/>
         <field:display field="n_empleados" id="s_es_uca_iw_myjob_domain_Empresa_n_empleados" object="${empresa}" z="URmHs9jy+4Ee3Y44GsiFt2Mu4xE="/>
         <field:display field="telefono" id="s_es_uca_iw_myjob_domain_Empresa_telefono" object="${empresa}" z="aoSaSDo8k4ZT8ubNE4XcyYXDyOI="/>
-        <field:display render="false" field="usuario" id="s_es_uca_iw_myjob_domain_Empresa_usuario" object="${empresa}" z="01dUguN+1NAkApOXDujYEawWf5w="/>
-        <field:display render="false" field="direccion" id="s_es_uca_iw_myjob_domain_Empresa_direccion" object="${empresa}" z="/vjDNXv4SFkw65+6XvAml3/z8GU="/>
-        <field:display render="false" field="oferta" id="s_es_uca_iw_myjob_domain_Empresa_oferta" object="${empresa}" z="LYpOFBcFOsz/DnYTKuLngtFD2r4="/>
+        <field:display field="usuario" id="s_es_uca_iw_myjob_domain_Empresa_usuario" object="${empresa}" render="false" z="user-managed"/>
+        <field:display field="direccion" id="s_es_uca_iw_myjob_domain_Empresa_direccion" object="${empresa}" render="false" z="user-managed"/>
+        <field:display field="oferta" id="s_es_uca_iw_myjob_domain_Empresa_oferta" object="${empresa}" render="false" z="user-managed"/>
     </page:show>
 </div>

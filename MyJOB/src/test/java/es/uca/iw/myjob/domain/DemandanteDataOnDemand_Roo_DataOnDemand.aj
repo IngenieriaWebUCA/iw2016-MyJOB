@@ -5,7 +5,6 @@ package es.uca.iw.myjob.domain;
 
 import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.DemandanteDataOnDemand;
-import es.uca.iw.myjob.domain.OfertaTrabajoDataOnDemand;
 import es.uca.iw.myjob.domain.PerfilDataOnDemand;
 import es.uca.iw.myjob.domain.UsuarioDataOnDemand;
 import es.uca.iw.myjob.reference.EstadoOferta;
@@ -27,9 +26,6 @@ privileged aspect DemandanteDataOnDemand_Roo_DataOnDemand {
     private Random DemandanteDataOnDemand.rnd = new SecureRandom();
     
     private List<Demandante> DemandanteDataOnDemand.data;
-    
-    @Autowired
-    OfertaTrabajoDataOnDemand DemandanteDataOnDemand.ofertaTrabajoDataOnDemand;
     
     @Autowired
     PerfilDataOnDemand DemandanteDataOnDemand.perfilDataOnDemand;

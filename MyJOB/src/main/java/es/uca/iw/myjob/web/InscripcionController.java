@@ -36,4 +36,11 @@ public class InscripcionController {
 			}
 	    	return "inscripcions/create";
 	    }
+	 
+	 @RequestMapping(value = "/mostrarInscripciones")
+	    public String mostrarInscripciones(@RequestParam("usuario_nombre") String nombre, Model uiModel) {
+	    	Usuario usuario = Usuario.buscarUsuarioNombre(nombre);
+	    	uiModel.addAttribute("inscripcions", Inscripcion.findAllInscripcionsByDni(usuario.getId()));
+	        return "inscripcions/list";
+	    }
 }

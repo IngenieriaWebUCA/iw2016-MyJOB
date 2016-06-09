@@ -5,7 +5,6 @@ package es.uca.iw.myjob.domain;
 
 import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.domain.Inscripcion;
-import es.uca.iw.myjob.domain.OfertaTrabajo;
 import es.uca.iw.myjob.domain.Perfil;
 import es.uca.iw.myjob.domain.Usuario;
 import es.uca.iw.myjob.reference.EstadoOferta;

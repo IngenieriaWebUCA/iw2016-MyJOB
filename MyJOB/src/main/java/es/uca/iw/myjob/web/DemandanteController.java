@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -63,6 +65,25 @@ public class DemandanteController {
 		}
       
         return "redirect:/demandantes/" + encodeUrlPathSegment(demandante.getId().toString(), httpServletRequest);
+    }
+    
+    @RequestMapping(value = "/editarDemandante")
+    public String editarDemandante(@RequestParam("usuario_nombre") String nombre, Model uiModel){
+    	Usuario usuario = Usuario.buscarUsuarioNombre(nombre);
+    	
+    	populateEditForm(uiModel, Demandante.findDemandante(usuario.getId()));
+    	return "demandantes/update";
+    	
+    	/*List<String[]> dependencies = new ArrayList<String[]>();
+    	
+    	Usuario usuario = Usuario.buscarUsuarioNombre(nombre);
+    	
+    	Collection<Usuario> usuarios = Usuario.findUsuario2(usuario.getId());
+    	
+    	uiModel.addAttribute("demandante", Demandante.findDemandante(usuario.getId()));
+    	uiModel.addAttribute("usuarios", usuarios);
+    	uiModel.addAttribute("dependencies",dependencies);
+    	return "demandantes/update";*/
     }
 
     @RequestMapping(params = "form", produces = "text/html")

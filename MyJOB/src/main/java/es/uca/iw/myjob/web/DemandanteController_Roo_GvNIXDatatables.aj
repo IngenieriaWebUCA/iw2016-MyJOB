@@ -20,6 +20,7 @@ import com.github.dandelion.datatables.extras.export.poi.XlsxExport;
 import com.github.dandelion.datatables.extras.spring3.ajax.DatatablesParams;
 import es.uca.iw.myjob.domain.Demandante;
 import es.uca.iw.myjob.web.DemandanteController;
+import es.uca.iw.myjob.web.DemandanteController_Roo_Controller;
 import es.uca.iw.myjob.web.DemandanteController_Roo_GvNIXDatatables;
 import java.io.IOException;
 import java.lang.reflect.Field;
